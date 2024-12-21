@@ -9,7 +9,7 @@ class WelcomeMessage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        verticalSpacing(30),
+        verticalSpacing(50),
         Text(
           'Task Management &\n To-Do List',
           textAlign: TextAlign.center,

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tasky/core/routing/app_router.dart';
 import 'package:tasky/core/routing/routes.dart';
+import 'package:tasky/core/theming/colors.dart';
 
 class TaskyApp extends StatelessWidget {
   final AppRouter appRouter;
@@ -14,7 +16,16 @@ class TaskyApp extends StatelessWidget {
       minTextAdapt: true,
       child: MaterialApp(
         theme: ThemeData(
-          scaffoldBackgroundColor: Colors.white
+          appBarTheme: const AppBarTheme(
+            elevation: 0.0,
+            systemOverlayStyle: SystemUiOverlayStyle(
+              statusBarColor: Colors.transparent,
+              statusBarBrightness: Brightness.light,
+              statusBarIconBrightness: Brightness.dark,
+            ),
+          ),
+          scaffoldBackgroundColor: Colors.white,
+          primaryColor: ColorsManager.mainPurple,
         ),
         debugShowCheckedModeBanner: false,
         initialRoute: Routes.onBoardingScreen,

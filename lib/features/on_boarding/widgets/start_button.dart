@@ -31,7 +31,7 @@ class StartButton extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(top: 3),
               child: Image.asset(
-                'assets/images/arrow_left_icon.png',
+                'assets/images/white_arrow_left_icon.png',
                 width: 25,
                 fit: BoxFit.contain,
               ),
