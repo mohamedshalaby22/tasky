@@ -41,7 +41,7 @@ class _SignUpFormsState extends State<SignUpForms> {
           ),
           verticalSpacing(15),
           AppTextFormField(
-            controller: context.read<SignUpCubit>().yearsController,
+              controller: context.read<SignUpCubit>().yearsController,
               hintText: 'Years of experience...',
               validator: (value) {
                 if (value != null && value.isEmpty) {
@@ -52,12 +52,11 @@ class _SignUpFormsState extends State<SignUpForms> {
           ChooseExperienceLevel(
             onSelect: (String level) {
               context.read<SignUpCubit>().level = level;
-             
             },
           ),
           verticalSpacing(15),
           AppTextFormField(
-            controller: context.read<SignUpCubit>().addressController,
+              controller: context.read<SignUpCubit>().addressController,
               hintText: 'Address...',
               validator: (value) {
                 if (value != null && value.isEmpty) {
@@ -92,15 +91,5 @@ class _SignUpFormsState extends State<SignUpForms> {
         ],
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    context.read<SignUpCubit>().nameController.dispose();
-    context.read<SignUpCubit>().phoneController.dispose();
-    context.read<SignUpCubit>().yearsController.dispose();
-    context.read<SignUpCubit>().addressController.dispose();
-    context.read<SignUpCubit>().passwordController.dispose();
-    super.dispose();
   }
 }

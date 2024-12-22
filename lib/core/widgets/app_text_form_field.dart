@@ -35,7 +35,7 @@ class AppTextFormField extends StatelessWidget {
       validator: (value) {
         return validator(value);
       },
-      style: textStyle ?? TextStyles.font14GreyRegular,
+      style: textStyle ?? TextStyles.font14MainBlackMedium,
       obscureText: isObscureText ?? false,
       cursorColor: ColorsManager.mainPurple,
       maxLines: maxLines ?? 1,
