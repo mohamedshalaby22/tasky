@@ -28,7 +28,7 @@ class TaskyApp extends StatelessWidget {
           primaryColor: ColorsManager.mainPurple,
         ),
         debugShowCheckedModeBanner: false,
-        initialRoute: Routes.homeScreen,
+        initialRoute: Routes.onBoardingScreen,
         onGenerateRoute: appRouter.generateRoutes,
       ),
     );

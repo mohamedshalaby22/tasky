@@ -13,8 +13,8 @@ class ChoosePriorityButton extends StatefulWidget {
 class _ChoosePriorityButtonState extends State<ChoosePriorityButton> {
   String selectedValue = 'Medium Priority';
   List<String> priorities = [
-    'Medium Priority',
     'Low Priority',
+    'Medium Priority',
     'High Priority',
   ];
   @override

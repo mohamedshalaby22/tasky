@@ -9,7 +9,7 @@ import 'package:tasky/features/task_details/ui/screens/task_details_screen.dart'
 import '../../features/on_boarding/on_boarding_screen.dart';
 
 class AppRouter {
-  Route generateRoutes(RouteSettings settings) {
+  Route? generateRoutes(RouteSettings settings) {
     switch (settings.name) {
       case Routes.onBoardingScreen:
         return MaterialPageRoute(builder: (_) => const OnBoardingScreen());
@@ -26,9 +26,7 @@ class AppRouter {
       case Routes.profileScreen:
         return MaterialPageRoute(builder: (_) => const ProfileScreen());
       default:
-        return MaterialPageRoute(
-            builder: (_) =>
-                const Scaffold(body: Center(child: Text('inValid Route'))));
+        return null;
     }
   }
 }
