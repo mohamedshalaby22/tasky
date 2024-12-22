@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:tasky/core/helpers/spacing.dart';
 import 'package:tasky/core/widgets/app_text_button.dart';
-import 'package:tasky/features/add_new_task/ui/widgets/add_image_button.dart';
-import 'package:tasky/features/add_new_task/ui/widgets/new_task_app_bar.dart';
-import 'package:tasky/features/add_new_task/ui/widgets/new_task_forms.dart';
+import 'package:tasky/core/widgets/custom_appbar.dart';
+import 'package:tasky/features/new_task/ui/widgets/add_image_button.dart';
+import 'package:tasky/features/new_task/ui/widgets/new_task_forms.dart';
 
-class AddNewTaskScreen extends StatelessWidget {
-  const AddNewTaskScreen({super.key});
+class NewTaskScreen extends StatelessWidget {
+  const NewTaskScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const NewTaskAppBar(),
+      appBar: const CustomAppBar(title: 'Add new task'),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(

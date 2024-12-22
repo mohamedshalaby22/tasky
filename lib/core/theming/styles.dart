@@ -5,7 +5,7 @@ import 'package:tasky/core/theming/colors.dart';
 import 'package:tasky/core/theming/font_weight_helper.dart';
 
 class TextStyles {
-  static TextStyle font24BlackBold = TextStyle(
+  static TextStyle font24MainBlackBold = TextStyle(
     fontSize: 24.sp,
     color: ColorsManager.mainBlack,
     fontWeight: FontWeightHelper.bold,
@@ -89,6 +89,12 @@ class TextStyles {
     fontWeight: FontWeightHelper.medium,
     fontFamily: AppConstants.appFontFamily,
   );
+  static TextStyle font16RedMedium = TextStyle(
+    fontSize: 16.sp,
+    color: ColorsManager.red,
+    fontWeight: FontWeightHelper.medium,
+    fontFamily: AppConstants.appFontFamily,
+  );
   static TextStyle font12MainPurpleMedium = TextStyle(
     fontSize: 12.sp,
     color: ColorsManager.mainPurple,
@@ -97,6 +103,12 @@ class TextStyles {
   );
   static TextStyle font12GreyRegular = TextStyle(
     fontSize: 12.sp,
+    color: ColorsManager.grey,
+    fontWeight: FontWeightHelper.regular,
+    fontFamily: AppConstants.appFontFamily,
+  );
+  static TextStyle font9GreyRegular = TextStyle(
+    fontSize: 9.sp,
     color: ColorsManager.grey,
     fontWeight: FontWeightHelper.regular,
     fontFamily: AppConstants.appFontFamily,
@@ -111,6 +123,12 @@ class TextStyles {
     fontSize: 18.sp,
     color: ColorsManager.grey,
     fontWeight: FontWeightHelper.bold,
+    fontFamily: AppConstants.appFontFamily,
+  );
+  static TextStyle font16MainBlackMedium = TextStyle(
+    fontSize: 16.sp,
+    color: ColorsManager.mainBlack,
+    fontWeight: FontWeightHelper.medium,
     fontFamily: AppConstants.appFontFamily,
   );
   

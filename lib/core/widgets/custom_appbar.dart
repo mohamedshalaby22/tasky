@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:tasky/core/helpers/extensions.dart';
-import 'package:tasky/features/home/ui/widgets/home_app_bar.dart';
-
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/styles.dart';
 
-class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const ProfileAppBar({super.key});
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+  final String title;
+  final VoidCallback? onBackPressed;
+
+  const CustomAppBar({
+    super.key,
+    required this.title,
+    this.onBackPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +24,11 @@ class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
         children: [
           GestureDetector(
             onTap: () {
-              context.pop();
+              if (onBackPressed != null) {
+                onBackPressed!();
+              } else {
+                context.pop();
+              }
             },
             child: Image.asset(
               'assets/images/black_arrow_left_icon.png',
@@ -27,9 +36,12 @@ class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
             ),
           ),
           horizontalSpacing(10),
-          Text(
-            'Profile',
-            style: TextStyles.font16MainBlackBold,
+          Padding(
+            padding: const EdgeInsets.only(bottom: 3),
+            child: Text(
+              title,
+              style: TextStyles.font16MainBlackBold,
+            ),
           ),
         ],
       ),

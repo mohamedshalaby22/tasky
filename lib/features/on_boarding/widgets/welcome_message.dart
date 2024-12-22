@@ -13,7 +13,7 @@ class WelcomeMessage extends StatelessWidget {
         Text(
           'Task Management &\n To-Do List',
           textAlign: TextAlign.center,
-          style: TextStyles.font24BlackBold,
+          style: TextStyles.font24MainBlackBold,
         ),
         verticalSpacing(10),
         Text(

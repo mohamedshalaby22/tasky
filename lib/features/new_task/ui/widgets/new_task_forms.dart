@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:tasky/core/helpers/spacing.dart';
 import 'package:tasky/core/theming/styles.dart';
 import 'package:tasky/core/widgets/app_text_form_field.dart';
-import 'package:tasky/features/add_new_task/ui/widgets/choose_priority_button.dart';
-import 'package:tasky/features/add_new_task/ui/widgets/date_picker_button.dart';
+import 'package:tasky/features/new_task/ui/widgets/choose_priority_button.dart';
+import 'package:tasky/features/new_task/ui/widgets/date_picker_button.dart';
 
 class NewTaskForms extends StatefulWidget {
   const NewTaskForms({super.key});

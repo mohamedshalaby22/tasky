@@ -26,7 +26,7 @@ class LoginScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   verticalSpacing(15),
-                  Text('Login', style: TextStyles.font24BlackBold),
+                  Text('Login', style: TextStyles.font24MainBlackBold),
                   const PhoneAndPaswordForms(),
                   AppTextButton(buttonText: 'Sign In', onPressed: () {
                     context.pushReplacementNamed(Routes.homeScreen);

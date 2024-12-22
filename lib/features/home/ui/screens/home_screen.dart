@@ -44,7 +44,7 @@ class HomeScreen extends StatelessWidget {
               borderRadius: BorderRadius.circular(50),
             ),
             onPressed: () {
-              context.pushNamed(Routes.addNewTaskScreen);
+              context.pushNamed(Routes.newTaskScreen);
             },
             child: const Icon(
               Icons.add,

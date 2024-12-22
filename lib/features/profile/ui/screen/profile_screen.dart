@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tasky/core/helpers/spacing.dart';
-import 'package:tasky/features/profile/ui/widgets/profile_app_bar.dart';
+import 'package:tasky/core/widgets/custom_appbar.dart';
 import 'package:tasky/features/profile/ui/widgets/user_profile_info_row.dart';
 
 
@@ -10,7 +10,7 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const ProfileAppBar(),
+      appBar:  const CustomAppBar(title: 'Profile'),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(

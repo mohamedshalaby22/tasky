@@ -22,7 +22,7 @@ class _SignUpFormsState extends State<SignUpForms> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         verticalSpacing(20),
-        Text('Sign Up', style: TextStyles.font24BlackBold),
+        Text('Sign Up', style: TextStyles.font24MainBlackBold),
         verticalSpacing(20),
         AppTextFormField(
             hintText: 'Name...',
