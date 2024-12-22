@@ -32,7 +32,7 @@ class TaskDetailsScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                verticalSpacing(15),
+                verticalSpacing(20),
               ],
             ),
           ),

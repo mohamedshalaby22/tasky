@@ -25,6 +25,7 @@ class NewTaskScreen extends StatelessWidget {
                 const NewTaskForms(),
                 verticalSpacing(15),
                 AppTextButton(buttonText: 'Add task', onPressed: () {}),
+                verticalSpacing(20),
               ],
             ),
           ),

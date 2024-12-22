@@ -19,7 +19,7 @@ class LoginScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-             const ResponsiveImage(imagePath: 'assets/images/auth_image.png'),
+            const ResponsiveImage(imagePath: 'assets/images/auth_image.png'),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Column(
@@ -28,11 +28,14 @@ class LoginScreen extends StatelessWidget {
                   verticalSpacing(15),
                   Text('Login', style: TextStyles.font24MainBlackBold),
                   const PhoneAndPaswordForms(),
-                  AppTextButton(buttonText: 'Sign In', onPressed: () {
-                    context.pushReplacementNamed(Routes.homeScreen);
-                  }),
+                  AppTextButton(
+                      buttonText: 'Sign In',
+                      onPressed: () {
+                        context.pushReplacementNamed(Routes.homeScreen);
+                      }),
                   verticalSpacing(15),
                   const DontHaveAccountText(),
+                  verticalSpacing(15),
                 ],
               ),
             ),

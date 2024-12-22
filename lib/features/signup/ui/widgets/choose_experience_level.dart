@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tasky/core/helpers/capitalize_first.dart';
 import 'package:tasky/core/theming/colors.dart';
 import 'package:tasky/core/theming/styles.dart';
 
@@ -12,9 +13,10 @@ class ChooseExperienceLevel extends StatefulWidget {
 class _ChooseExperienceLevelState extends State<ChooseExperienceLevel> {
   String selectedValue = 'Choose Experience Level';
   List<String> levels = [
-    'Jounior',
-    'Mid Level',
-    'Senior',
+    'fresh',
+    'jounior',
+    'midlevel',
+    'senior',
   ];
   @override
   Widget build(BuildContext context) {
@@ -40,7 +42,7 @@ class _ChooseExperienceLevelState extends State<ChooseExperienceLevel> {
           return levels.map((str) {
             return PopupMenuItem(
               height: 30,
-              value: str,
+              value: str.capitalizeFirst(),
               child: Text(
                 str,
                 style: TextStyles.font14MainBlackMedium,
