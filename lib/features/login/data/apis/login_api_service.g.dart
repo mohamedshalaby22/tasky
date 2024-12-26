@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'tasks_api_service.dart';
+part of 'login_api_service.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,8 +8,8 @@ part of 'tasks_api_service.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element,unnecessary_string_interpolations
 
-class _TasksApiService implements TasksApiService {
-  _TasksApiService(
+class _LoginApiService implements LoginApiService {
+  _LoginApiService(
     this._dio, {
     this.baseUrl,
     this.errorLogger,
@@ -24,56 +24,20 @@ class _TasksApiService implements TasksApiService {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<List<TasksListResponse>> getTodos(int page) async {
-    final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'page': page};
-    final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<List<TasksListResponse>>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          '/todos',
-          queryParameters: queryParameters,
-          data: _data,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        )));
-    final _result = await _dio.fetch<List<dynamic>>(_options);
-    late List<TasksListResponse> _value;
-    try {
-      _value = _result.data!
-          .map((dynamic i) =>
-              TasksListResponse.fromJson(i as Map<String, dynamic>))
-          .toList();
-    } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options);
-      rethrow;
-    }
-    return _value;
-  }
-
-  @override
-  Future<LogoutResponse> logout(LogoutRequestBody logoutRequestBody) async {
+  Future<LoginResponse> login(LoginRequestBody loginRequestBody) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    _data.addAll(logoutRequestBody.toJson());
-    final _options = _setStreamType<LogoutResponse>(Options(
+    _data.addAll(loginRequestBody.toJson());
+    final _options = _setStreamType<LoginResponse>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
     )
         .compose(
           _dio.options,
-          '/auth/logout',
+          '/auth/login',
           queryParameters: queryParameters,
           data: _data,
         )
@@ -83,9 +47,9 @@ class _TasksApiService implements TasksApiService {
           baseUrl,
         )));
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late LogoutResponse _value;
+    late LoginResponse _value;
     try {
-      _value = LogoutResponse.fromJson(_result.data!);
+      _value = LoginResponse.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;

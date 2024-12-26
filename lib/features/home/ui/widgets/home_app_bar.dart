@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tasky/core/constants/app_images.dart';
 import 'package:tasky/core/helpers/extensions.dart';
 import 'package:tasky/core/helpers/spacing.dart';
 import 'package:tasky/core/routing/routes.dart';
+import 'package:tasky/core/theming/colors.dart';
+import 'package:tasky/core/theming/styles.dart';
+import 'package:tasky/features/home/logic/cubit/tasks_cubit.dart';
+import 'package:tasky/features/home/ui/widgets/logout_bloc_listener.dart';
+import '../../../task_details/ui/widgets/task_details_cards.dart';
 
 class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   const HomeAppBar({super.key});
@@ -34,7 +40,12 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
               },
               child: SvgPicture.asset(Assets.svgsProfileIcon)),
           horizontalSpacing(15),
-          SvgPicture.asset(Assets.svgsLogoutIcon),
+          GestureDetector(
+              onTap: () {
+                _logoutSheet(context);
+              },
+              child: SvgPicture.asset(Assets.svgsLogoutIcon)),
+          const LogoutBlocListener(),
         ],
       ),
     );
@@ -42,4 +53,59 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Size get preferredSize => const Size.fromHeight(60);
+}
+
+Future<dynamic> _logoutSheet(BuildContext context) {
+  final tasksCubit = context.read<TasksCubit>();
+  return showModalBottomSheet(
+    elevation: 0.0,
+    backgroundColor: Colors.white,
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+    context: context,
+    builder: (context) {
+      return Container(
+        margin: const EdgeInsets.all(16),
+        width: double.infinity,
+        height: 150,
+        child: Column(
+          children: [
+            GestureDetector(
+              onTap: () {
+                context.pop();
+              },
+              child: const Align(
+                alignment: Alignment.topRight,
+                child: CircleAvatar(
+                  radius: 18,
+                  backgroundColor: ColorsManager.lighterPurple,
+                  child: Icon(
+                    Icons.close,
+                    color: ColorsManager.mainPurple,
+                  ),
+                ),
+              ),
+            ),
+            verticalSpacing(15),
+            GestureDetector(
+              onTap: () {
+                tasksCubit.logout();
+
+              },
+              child: buildInfoCard(
+                  child: Row(
+                children: [
+                  SvgPicture.asset(Assets.svgsLogoutIcon),
+                  horizontalSpacing(10),
+                  Text(
+                    'Logout',
+                    style: TextStyles.font16MainPurpleBold,
+                  ),
+                ],
+              )),
+            ),
+          ],
+        ),
+      );
+    },
+  );
 }

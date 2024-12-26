@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tasky/core/constants/app_images.dart';
-import 'package:tasky/core/helpers/extensions.dart';
 import 'package:tasky/core/helpers/spacing.dart';
-import 'package:tasky/core/routing/routes.dart';
 import 'package:tasky/core/theming/styles.dart';
 import 'package:tasky/core/widgets/app_text_button.dart';
 import 'package:tasky/core/widgets/responsive_image.dart';
+import 'package:tasky/features/login/logic/cubit/login_cubit.dart';
 import 'package:tasky/features/login/ui/widgets/dont_have_account_text.dart';
+import 'package:tasky/features/login/ui/widgets/login_bloc_listener.dart';
 import '../widgets/phone_and_pasword_forms.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -20,7 +21,9 @@ class LoginScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const ResponsiveImage(imagePath: Assets.imagesAuthImage,),
+            const ResponsiveImage(
+              imagePath: Assets.imagesAuthImage,
+            ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Column(
@@ -32,10 +35,11 @@ class LoginScreen extends StatelessWidget {
                   AppTextButton(
                       buttonText: 'Sign In',
                       onPressed: () {
-                        context.pushReplacementNamed(Routes.homeScreen);
+                        validateThenDoLogin(context);
                       }),
                   verticalSpacing(15),
                   const DontHaveAccountText(),
+                  const LoginBlocListener(),
                   verticalSpacing(15),
                 ],
               ),
@@ -44,5 +48,11 @@ class LoginScreen extends StatelessWidget {
         ),
       ),
     ));
+  }
+}
+
+void validateThenDoLogin(BuildContext context) {
+  if (context.read<LoginCubit>().formKey.currentState!.validate()) {
+    context.read<LoginCubit>().emitLoginStates();
   }
 }

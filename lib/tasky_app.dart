@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tasky/core/constants/app_constants.dart';
 import 'package:tasky/core/routing/app_router.dart';
 import 'package:tasky/core/routing/routes.dart';
 import 'package:tasky/core/theming/colors.dart';
@@ -28,7 +29,9 @@ class TaskyApp extends StatelessWidget {
           primaryColor: ColorsManager.mainPurple,
         ),
         debugShowCheckedModeBanner: false,
-        initialRoute: Routes.onBoardingScreen,
+        initialRoute: AppConstants.isLoggedIn
+            ? Routes.homeScreen
+            : Routes.onBoardingScreen,
         onGenerateRoute: appRouter.generateRoutes,
       ),
     );

@@ -11,7 +11,7 @@ class ProfileInfo extends StatelessWidget {
       children: [
         UserProfileInfoRow(
           title: 'NAME',
-          subTitle: profileResponse.displayName,
+          subTitle: profileResponse.userName,
         ),
         UserProfileInfoRow(
           title: 'PHONE',
@@ -27,7 +27,9 @@ class ProfileInfo extends StatelessWidget {
           subTitle: '${profileResponse.experienceYears} years',
         ),
         UserProfileInfoRow(
-            title: 'LOCATION', subTitle: profileResponse.address),
+          title: 'LOCATION',
+          subTitle: profileResponse.address,
+        ),
       ],
     );
   }

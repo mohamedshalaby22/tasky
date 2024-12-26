@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tasky/core/helpers/token_storage.dart';
 import 'package:tasky/features/signup/data/models/signup_request_body.dart';
 import 'package:tasky/features/signup/data/repos/signup_repo.dart';
 part 'sign_up_state.dart';
@@ -28,7 +29,11 @@ class SignUpCubit extends Cubit<SignupState> {
         level: level,
       ),
     );
-    response.when(success: (signupResponse) {
+    response.when(success: (signupResponse) async {
+      await TokenStorage.saveTokens(
+        accessToken: signupResponse.accessToken,
+        refreshToken: signupResponse.refreshToken,
+      );
       emit(SignupState.success(signupResponse));
     }, failure: (error) {
       emit(SignupState.error(error: error.toString()));

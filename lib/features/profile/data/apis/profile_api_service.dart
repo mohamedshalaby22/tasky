@@ -7,6 +7,8 @@ part 'profile_api_service.g.dart';
 @RestApi(baseUrl: ApiConstants.apiBaseUrl)
 abstract class ProfileApiService {
   factory ProfileApiService(Dio dio) => _ProfileApiService(dio);
+
+  
   @GET(ProfileApiConstants.profile)
   Future<ProfileResponse> getProfile();
 }

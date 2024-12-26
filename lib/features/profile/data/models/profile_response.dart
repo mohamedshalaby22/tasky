@@ -4,20 +4,21 @@ part 'profile_response.g.dart';
 @JsonSerializable()
 class ProfileResponse {
   String id;
-  String displayName;
+  @JsonKey(name: 'displayName')
+  String userName;
   @JsonKey(name: 'username')
   String phoneNumber;
-  String experienceYears;
+  int experienceYears;
   String address;
   String level;
 
   ProfileResponse({
-     this.id='',
-     this.displayName='',
-     this.phoneNumber='',
-     this.experienceYears='',
-     this.address='',
-     this.level='',
+    this.id = '',
+    this.userName = '',
+    this.phoneNumber = '',
+    this.experienceYears = 0,
+    this.address = '',
+    this.level = '',
   });
 
   factory ProfileResponse.fromJson(Map<String, dynamic> json) =>

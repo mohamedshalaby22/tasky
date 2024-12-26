@@ -12,7 +12,6 @@ class AuthPhoneTextFormField extends StatelessWidget {
     return IntlPhoneField(
       controller: controller,
       initialCountryCode: 'EG',
-    
       flagsButtonMargin: const EdgeInsets.only(left: 10),
       disableLengthCheck: false,
       dropdownIconPosition: IconPosition.trailing,

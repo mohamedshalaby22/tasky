@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:tasky/core/helpers/capitalize_first.dart';
 import 'package:tasky/core/helpers/haptic_feedback.dart';
 import 'package:tasky/core/helpers/spacing.dart';
 import 'package:tasky/core/theming/colors.dart';
 import 'package:tasky/core/theming/styles.dart';
-
 import '../../../../core/constants/app_images.dart';
 
 class UserProfileInfoRow extends StatelessWidget {
@@ -36,7 +36,7 @@ class UserProfileInfoRow extends StatelessWidget {
               ),
               verticalSpacing(3),
               Text(
-                subTitle,
+                subTitle.capitalizeFirst(),
                 style: TextStyles.font18GreyBold,
               ),
             ],

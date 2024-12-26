@@ -2,6 +2,8 @@
 
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
+import 'package:tasky/core/networking/dio_interceptor.dart';
+import '../helpers/token_storage.dart';
 
 class DioFactory {
   DioFactory._();
@@ -21,16 +23,25 @@ class DioFactory {
   }
 
   static void addDioInterceptor() {
-    dio!.interceptors.add(PrettyDioLogger(
-        responseBody: true,
-        requestBody: true,
+    dio!.interceptors.addAll([
+      DioInterceptor(dio!),
+      PrettyDioLogger(
         requestHeader: true,
-        responseHeader: true));
+        requestBody: true,
+        responseBody: true,
+        responseHeader: false,
+        error: true,
+        compact: true,
+        maxWidth: 90,
+      ),
+    ]);
   }
 
   static void addDioHeaders() async {
+    String? accessToken = await TokenStorage.getAccessToken();
     dio?.options.headers = {
       'Content-Type': 'application/json',
+      'Authorization': 'Bearer $accessToken',
     };
   }
 }
