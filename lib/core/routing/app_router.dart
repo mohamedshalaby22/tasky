@@ -4,7 +4,6 @@ import 'package:tasky/core/di/dependency_injection.dart';
 import 'package:tasky/core/routing/routes.dart';
 import 'package:tasky/features/home/logic/cubit/tasks_cubit.dart';
 import 'package:tasky/features/login/logic/cubit/login_cubit.dart';
-import 'package:tasky/features/new_task/ui/screens/new_task_screen.dart';
 import 'package:tasky/features/home/ui/screens/home_screen.dart';
 import 'package:tasky/features/login/ui/screens/login_screen.dart';
 import 'package:tasky/features/profile/logic/cubit/profile_cubit.dart';
@@ -40,10 +39,12 @@ class AppRouter {
             child: const HomeScreen(),
           ),
         );
-      case Routes.newTaskScreen:
-        return MaterialPageRoute(builder: (_) => const NewTaskScreen());
       case Routes.taskDetailsScreen:
+        final args = settings.arguments as Map<String, dynamic>;
+        //for task id
+        final taskId = args['taskId'] as String;
         return MaterialPageRoute(builder: (_) => const TaskDetailsScreen());
+
       case Routes.profileScreen:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
