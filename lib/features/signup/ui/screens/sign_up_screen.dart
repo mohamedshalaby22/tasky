@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tasky/core/constants/app_images.dart';
 import 'package:tasky/core/helpers/spacing.dart';
 import 'package:tasky/core/widgets/app_text_button.dart';
 import 'package:tasky/core/widgets/responsive_image.dart';
@@ -20,7 +21,9 @@ class SignUpScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const ResponsiveImage(
-                imagePath: 'assets/images/auth_image.png', isMaxHeight: false),
+              imagePath: Assets.imagesAuthImage,
+              isMaxHeight: false,
+            ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Column(

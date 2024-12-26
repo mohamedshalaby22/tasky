@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tasky/core/constants/app_images.dart';
 import 'package:tasky/core/helpers/extensions.dart';
 import 'package:tasky/core/routing/routes.dart';
 import '../../../../core/helpers/spacing.dart';
@@ -26,7 +27,7 @@ class FloatingActionButtons extends StatelessWidget {
             ),
             onPressed: () {},
             child: Image.asset(
-              'assets/images/barcode_icon.png',
+              Assets.imagesBarcodeIcon,
               width: 20,
             ),
           ),

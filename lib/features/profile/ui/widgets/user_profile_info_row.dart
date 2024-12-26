@@ -5,6 +5,8 @@ import 'package:tasky/core/helpers/spacing.dart';
 import 'package:tasky/core/theming/colors.dart';
 import 'package:tasky/core/theming/styles.dart';
 
+import '../../../../core/constants/app_images.dart';
+
 class UserProfileInfoRow extends StatelessWidget {
   const UserProfileInfoRow(
       {super.key,
@@ -41,11 +43,11 @@ class UserProfileInfoRow extends StatelessWidget {
           ),
           if (canCopy)
             GestureDetector(
-                onTap: () async{
+                onTap: () async {
                   Clipboard.setData(ClipboardData(text: subTitle));
-                    await HapticFeedbackExtension.vibrateSelection();
+                  await HapticFeedbackExtension.vibrateSelection();
                 },
-                child: Image.asset('assets/images/copy_icon.png', width: 25)),
+                child: Image.asset(Assets.imagesCopyIcon, width: 25)),
         ],
       ),
     );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:tasky/core/constants/app_images.dart';
 import 'package:tasky/core/helpers/extensions.dart';
 import 'package:tasky/core/helpers/spacing.dart';
 import 'package:tasky/core/routing/routes.dart';
@@ -20,7 +21,7 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(8),
             child: Image.asset(
-              'assets/images/app_icon.png',
+              Assets.imagesAppIcon,
               fit: BoxFit.contain,
               width: 45,
               height: 45,
@@ -31,9 +32,9 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
               onTap: () {
                 context.pushNamed(Routes.profileScreen);
               },
-              child: SvgPicture.asset('assets/svgs/profile_icon.svg')),
+              child: SvgPicture.asset(Assets.svgsProfileIcon)),
           horizontalSpacing(15),
-          SvgPicture.asset('assets/svgs/logout_icon.svg'),
+          SvgPicture.asset(Assets.svgsLogoutIcon),
         ],
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tasky/core/constants/app_images.dart';
 import 'package:tasky/core/helpers/extensions.dart';
 import 'package:tasky/core/helpers/spacing.dart';
 import 'package:tasky/core/routing/routes.dart';
@@ -19,7 +20,7 @@ class LoginScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const ResponsiveImage(imagePath: 'assets/images/auth_image.png'),
+            const ResponsiveImage(imagePath: Assets.imagesAuthImage,),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Column(

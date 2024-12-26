@@ -4,6 +4,8 @@ import 'package:tasky/core/widgets/responsive_image.dart';
 import 'package:tasky/features/on_boarding/widgets/start_button.dart';
 import 'package:tasky/features/on_boarding/widgets/welcome_message.dart';
 
+import '../../core/constants/app_images.dart';
+
 class OnBoardingScreen extends StatelessWidget {
   const OnBoardingScreen({super.key});
 
@@ -14,7 +16,7 @@ class OnBoardingScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              const ResponsiveImage(imagePath: 'assets/images/auth_image.png'),
+              const ResponsiveImage(imagePath: Assets.imagesAuthImage),
               const WelcomeMessage(),
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16),

@@ -42,6 +42,7 @@ class _SignUpFormsState extends State<SignUpForms> {
           verticalSpacing(15),
           AppTextFormField(
               controller: context.read<SignUpCubit>().yearsController,
+              textInputType: TextInputType.phone,
               hintText: 'Years of experience...',
               validator: (value) {
                 if (value != null && value.isEmpty) {

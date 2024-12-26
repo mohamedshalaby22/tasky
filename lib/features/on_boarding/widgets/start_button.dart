@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tasky/core/constants/app_images.dart';
 import 'package:tasky/core/helpers/extensions.dart';
 import 'package:tasky/core/helpers/spacing.dart';
 import 'package:tasky/core/routing/routes.dart';
@@ -31,7 +32,7 @@ class StartButton extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(top: 3),
               child: Image.asset(
-                'assets/images/white_arrow_left_icon.png',
+                Assets.imagesWhiteArrowLeftIcon,
                 width: 25,
                 fit: BoxFit.contain,
               ),

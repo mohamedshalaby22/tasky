@@ -17,6 +17,7 @@ class AppTextFormField extends StatelessWidget {
       this.suffixIcon,
       this.controller,
       this.maxLines,
+      this.textInputType,
       required this.validator});
   final InputBorder? enabledBorder, focusedBorder;
   final String hintText;
@@ -26,6 +27,7 @@ class AppTextFormField extends StatelessWidget {
   final bool? isObscureText;
   final Widget? suffixIcon;
   final int? maxLines;
+  final TextInputType? textInputType ;
   final TextEditingController? controller;
   final Function(String?) validator;
   @override
@@ -39,10 +41,13 @@ class AppTextFormField extends StatelessWidget {
       obscureText: isObscureText ?? false,
       cursorColor: ColorsManager.mainPurple,
       maxLines: maxLines ?? 1,
+      keyboardType: textInputType ?? TextInputType.text,
       decoration: InputDecoration(
+        
           isDense: true,
           contentPadding: contentPadding ??
               EdgeInsets.symmetric(horizontal: 20.w, vertical: 12.h),
+              
           focusedBorder: focusedBorder ??
               OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),

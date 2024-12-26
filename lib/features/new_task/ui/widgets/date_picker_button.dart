@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tasky/core/constants/app_images.dart';
 import 'package:tasky/core/theming/colors.dart';
 import 'package:tasky/core/theming/styles.dart';
 
@@ -34,7 +35,7 @@ class _DatePickerButtonState extends State<DatePickerButton> {
               style: TextStyles.font14GreyRegular,
             ),
             Image.asset(
-              'assets/images/calendar.png',
+            Assets.imagesCalendar,
               width: 25,
             ),
           ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tasky/core/constants/app_images.dart';
 import 'package:tasky/core/helpers/spacing.dart';
 import 'package:tasky/core/theming/colors.dart';
 import 'package:tasky/core/theming/styles.dart';
@@ -30,7 +31,7 @@ class TaskDetailsCards extends StatelessWidget {
                   ],
                 ),
                 Image.asset(
-                  'assets/images/calendar.png',
+                  Assets.imagesCalendar,
                   width: 25,
                 ),
               ],
@@ -44,7 +45,7 @@ class TaskDetailsCards extends StatelessWidget {
               style: TextStyles.font16MainPurpleBold,
             ),
             Image.asset(
-              'assets/images/purple_arrow_down.png',
+              Assets.imagesPurpleArrowDown,
               width: 15,
             ),
           ],
@@ -53,29 +54,29 @@ class TaskDetailsCards extends StatelessWidget {
             child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Image.asset('assets/images/purple_flag.png', width: 20),
+            Image.asset(Assets.imagesPurpleFlag, width: 20),
             horizontalSpacing(10),
             Text('Medium Priority', style: TextStyles.font16MainPurpleBold),
             const Spacer(),
-            Image.asset('assets/images/purple_arrow_down.png', width: 15),
+            Image.asset(Assets.imagesPurpleArrowDown, width: 15),
           ],
         )),
       ],
     );
   }
+}
 
-  Container buildInfoCard(
-      {required Widget child, double verticalPadding = 15}) {
-    return Container(
-      margin: const EdgeInsets.only(bottom: 15),
-      padding: EdgeInsets.only(
-          left: 20, right: 15, top: verticalPadding, bottom: verticalPadding),
-      width: double.infinity,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: ColorsManager.lightPurple,
-      ),
-      child: child,
-    );
-  }
+Container buildInfoCard(
+    {required Widget child, double verticalPadding = 15}) {
+  return Container(
+    margin: const EdgeInsets.only(bottom: 15),
+    padding: EdgeInsets.only(
+        left: 20, right: 15, top: verticalPadding, bottom: verticalPadding),
+    width: double.infinity,
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(10),
+      color: ColorsManager.lightPurple,
+    ),
+    child: child,
+  );
 }

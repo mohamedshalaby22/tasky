@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tasky/core/helpers/spacing.dart';
 import 'package:tasky/core/theming/colors.dart';
 import 'package:tasky/core/theming/styles.dart';
+import '../../../../core/constants/app_images.dart';
 
 class ChoosePriorityButton extends StatefulWidget {
   const ChoosePriorityButton({super.key, required this.onSelect});
@@ -27,7 +28,7 @@ class _ChoosePriorityButtonState extends State<ChoosePriorityButton> {
       child: PopupMenuButton(
         padding: EdgeInsets.zero,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-        color: ColorsManager.lighterPurple,
+        color: Colors.white,
         surfaceTintColor: Colors.white,
         offset: const Offset(16, 30),
         onSelected: (value) {
@@ -50,11 +51,11 @@ class _ChoosePriorityButtonState extends State<ChoosePriorityButton> {
         },
         child: Row(
           children: [
-            Image.asset('assets/images/purple_flag.png', width: 20),
+            Image.asset( Assets.imagesPurpleFlag, width: 20),
             horizontalSpacing(10),
             Text(selectedValue, style: TextStyles.font16MainPurpleBold),
             const Spacer(),
-            Image.asset('assets/images/purple_arrow_down.png', width: 15),
+            Image.asset(Assets.imagesPurpleArrowDown, width: 15),
           ],
         ),
       ),

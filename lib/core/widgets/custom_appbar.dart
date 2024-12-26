@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tasky/core/constants/app_images.dart';
 import 'package:tasky/core/helpers/extensions.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/styles.dart';
@@ -31,7 +32,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               }
             },
             child: Image.asset(
-              'assets/images/black_arrow_left_icon.png',
+              Assets.imagesBlackArrowLeftIcon,
               width: 30,
             ),
           ),

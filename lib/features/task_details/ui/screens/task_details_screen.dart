@@ -3,7 +3,7 @@ import 'package:pretty_qr_code/pretty_qr_code.dart';
 import 'package:tasky/core/helpers/spacing.dart';
 import 'package:tasky/features/task_details/ui/widgets/task_details_appbar.dart';
 import 'package:tasky/features/task_details/ui/widgets/task_image_and_description.dart';
-import '../widgets/task_details_info.dart';
+import '../widgets/task_details_cards.dart';
 
 class TaskDetailsScreen extends StatelessWidget {
   const TaskDetailsScreen({super.key});
