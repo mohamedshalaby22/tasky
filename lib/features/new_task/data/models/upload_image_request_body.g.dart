@@ -1,19 +1,19 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'refresh_token_response.dart';
+part of 'upload_image_request_body.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-RefreshTokenResponse _$RefreshTokenResponseFromJson(
+UploadImageRequestBody _$UploadImageRequestBodyFromJson(
         Map<String, dynamic> json) =>
-    RefreshTokenResponse(
-      accessToken: json['access_token'] as String,
+    UploadImageRequestBody(
+      image: json['image'] as String,
     );
 
-Map<String, dynamic> _$RefreshTokenResponseToJson(
-        RefreshTokenResponse instance) =>
+Map<String, dynamic> _$UploadImageRequestBodyToJson(
+        UploadImageRequestBody instance) =>
     <String, dynamic>{
-      'access_token': instance.accessToken,
+      'image': instance.image,
     };

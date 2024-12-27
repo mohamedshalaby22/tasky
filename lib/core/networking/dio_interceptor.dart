@@ -5,22 +5,26 @@ import 'package:tasky/features/login/data/models/refresh_token_response.dart';
 
 class DioInterceptor extends InterceptorsWrapper {
   final Dio dio;
-
   DioInterceptor(this.dio);
 
   @override
   onRequest(RequestOptions options, RequestInterceptorHandler handler) async {
     final accessToken = await TokenStorage.getAccessToken();
+
     options.headers['Authorization'] = 'Bearer $accessToken';
+
     return super.onRequest(options, handler);
   }
 
   @override
   onError(DioException err, ErrorInterceptorHandler handler) async {
     if (err.response?.statusCode == 401) {
+      print('Received 401 error, attempting to refresh token...');
       final refreshToken = await TokenStorage.getRefreshToken();
+
       if (refreshToken != null) {
         final refreshResponse = await _refreshAccessToken(refreshToken);
+
         if (refreshResponse != null) {
           final newAccessToken = refreshResponse.accessToken;
           await TokenStorage.saveTokens(

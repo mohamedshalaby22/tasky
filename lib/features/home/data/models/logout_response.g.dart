@@ -11,3 +11,7 @@ LogoutResponse _$LogoutResponseFromJson(Map<String, dynamic> json) =>
       success: json['success'] as bool? ?? false,
     );
 
+Map<String, dynamic> _$LogoutResponseToJson(LogoutResponse instance) =>
+    <String, dynamic>{
+      'success': instance.success,
+    };

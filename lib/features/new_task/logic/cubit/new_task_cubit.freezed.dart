@@ -22,6 +22,7 @@ mixin _$NewTaskState<T> {
     required TResult Function() loading,
     required TResult Function(T data) success,
     required TResult Function(String error) error,
+    required TResult Function(File image) imageSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +31,7 @@ mixin _$NewTaskState<T> {
     TResult? Function()? loading,
     TResult? Function(T data)? success,
     TResult? Function(String error)? error,
+    TResult? Function(File image)? imageSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +40,7 @@ mixin _$NewTaskState<T> {
     TResult Function()? loading,
     TResult Function(T data)? success,
     TResult Function(String error)? error,
+    TResult Function(File image)? imageSelected,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +50,7 @@ mixin _$NewTaskState<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
+    required TResult Function(ImageSelected<T> value) imageSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +59,7 @@ mixin _$NewTaskState<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(ImageSelected<T> value)? imageSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +68,7 @@ mixin _$NewTaskState<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
+    TResult Function(ImageSelected<T> value)? imageSelected,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -134,6 +140,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function() loading,
     required TResult Function(T data) success,
     required TResult Function(String error) error,
+    required TResult Function(File image) imageSelected,
   }) {
     return initial();
   }
@@ -145,6 +152,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function()? loading,
     TResult? Function(T data)? success,
     TResult? Function(String error)? error,
+    TResult? Function(File image)? imageSelected,
   }) {
     return initial?.call();
   }
@@ -156,6 +164,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function()? loading,
     TResult Function(T data)? success,
     TResult Function(String error)? error,
+    TResult Function(File image)? imageSelected,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -171,6 +180,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
+    required TResult Function(ImageSelected<T> value) imageSelected,
   }) {
     return initial(this);
   }
@@ -182,6 +192,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(ImageSelected<T> value)? imageSelected,
   }) {
     return initial?.call(this);
   }
@@ -193,6 +204,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
+    TResult Function(ImageSelected<T> value)? imageSelected,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -251,6 +263,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     required TResult Function() loading,
     required TResult Function(T data) success,
     required TResult Function(String error) error,
+    required TResult Function(File image) imageSelected,
   }) {
     return loading();
   }
@@ -262,6 +275,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult? Function()? loading,
     TResult? Function(T data)? success,
     TResult? Function(String error)? error,
+    TResult? Function(File image)? imageSelected,
   }) {
     return loading?.call();
   }
@@ -273,6 +287,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult Function()? loading,
     TResult Function(T data)? success,
     TResult Function(String error)? error,
+    TResult Function(File image)? imageSelected,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -288,6 +303,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
+    required TResult Function(ImageSelected<T> value) imageSelected,
   }) {
     return loading(this);
   }
@@ -299,6 +315,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(ImageSelected<T> value)? imageSelected,
   }) {
     return loading?.call(this);
   }
@@ -310,6 +327,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
+    TResult Function(ImageSelected<T> value)? imageSelected,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -396,6 +414,7 @@ class _$SuccessImpl<T> implements Success<T> {
     required TResult Function() loading,
     required TResult Function(T data) success,
     required TResult Function(String error) error,
+    required TResult Function(File image) imageSelected,
   }) {
     return success(data);
   }
@@ -407,6 +426,7 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult? Function()? loading,
     TResult? Function(T data)? success,
     TResult? Function(String error)? error,
+    TResult? Function(File image)? imageSelected,
   }) {
     return success?.call(data);
   }
@@ -418,6 +438,7 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult Function()? loading,
     TResult Function(T data)? success,
     TResult Function(String error)? error,
+    TResult Function(File image)? imageSelected,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -433,6 +454,7 @@ class _$SuccessImpl<T> implements Success<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
+    required TResult Function(ImageSelected<T> value) imageSelected,
   }) {
     return success(this);
   }
@@ -444,6 +466,7 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(ImageSelected<T> value)? imageSelected,
   }) {
     return success?.call(this);
   }
@@ -455,6 +478,7 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
+    TResult Function(ImageSelected<T> value)? imageSelected,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -548,6 +572,7 @@ class _$ErrorImpl<T> implements Error<T> {
     required TResult Function() loading,
     required TResult Function(T data) success,
     required TResult Function(String error) error,
+    required TResult Function(File image) imageSelected,
   }) {
     return error(this.error);
   }
@@ -559,6 +584,7 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult? Function()? loading,
     TResult? Function(T data)? success,
     TResult? Function(String error)? error,
+    TResult? Function(File image)? imageSelected,
   }) {
     return error?.call(this.error);
   }
@@ -570,6 +596,7 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult Function()? loading,
     TResult Function(T data)? success,
     TResult Function(String error)? error,
+    TResult Function(File image)? imageSelected,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -585,6 +612,7 @@ class _$ErrorImpl<T> implements Error<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
+    required TResult Function(ImageSelected<T> value) imageSelected,
   }) {
     return error(this);
   }
@@ -596,6 +624,7 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(ImageSelected<T> value)? imageSelected,
   }) {
     return error?.call(this);
   }
@@ -607,6 +636,7 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
+    TResult Function(ImageSelected<T> value)? imageSelected,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -625,5 +655,165 @@ abstract class Error<T> implements NewTaskState<T> {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ErrorImplCopyWith<T, _$ErrorImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ImageSelectedImplCopyWith<T, $Res> {
+  factory _$$ImageSelectedImplCopyWith(_$ImageSelectedImpl<T> value,
+          $Res Function(_$ImageSelectedImpl<T>) then) =
+      __$$ImageSelectedImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({File image});
+}
+
+/// @nodoc
+class __$$ImageSelectedImplCopyWithImpl<T, $Res>
+    extends _$NewTaskStateCopyWithImpl<T, $Res, _$ImageSelectedImpl<T>>
+    implements _$$ImageSelectedImplCopyWith<T, $Res> {
+  __$$ImageSelectedImplCopyWithImpl(_$ImageSelectedImpl<T> _value,
+      $Res Function(_$ImageSelectedImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of NewTaskState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? image = null,
+  }) {
+    return _then(_$ImageSelectedImpl<T>(
+      image: null == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as File,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ImageSelectedImpl<T> implements ImageSelected<T> {
+  const _$ImageSelectedImpl({required this.image});
+
+  @override
+  final File image;
+
+  @override
+  String toString() {
+    return 'NewTaskState<$T>.imageSelected(image: $image)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ImageSelectedImpl<T> &&
+            (identical(other.image, image) || other.image == image));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, image);
+
+  /// Create a copy of NewTaskState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ImageSelectedImplCopyWith<T, _$ImageSelectedImpl<T>> get copyWith =>
+      __$$ImageSelectedImplCopyWithImpl<T, _$ImageSelectedImpl<T>>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(T data) success,
+    required TResult Function(String error) error,
+    required TResult Function(File image) imageSelected,
+  }) {
+    return imageSelected(image);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(T data)? success,
+    TResult? Function(String error)? error,
+    TResult? Function(File image)? imageSelected,
+  }) {
+    return imageSelected?.call(image);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(T data)? success,
+    TResult Function(String error)? error,
+    TResult Function(File image)? imageSelected,
+    required TResult orElse(),
+  }) {
+    if (imageSelected != null) {
+      return imageSelected(image);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Success<T> value) success,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(ImageSelected<T> value) imageSelected,
+  }) {
+    return imageSelected(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Success<T> value)? success,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(ImageSelected<T> value)? imageSelected,
+  }) {
+    return imageSelected?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Success<T> value)? success,
+    TResult Function(Error<T> value)? error,
+    TResult Function(ImageSelected<T> value)? imageSelected,
+    required TResult orElse(),
+  }) {
+    if (imageSelected != null) {
+      return imageSelected(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ImageSelected<T> implements NewTaskState<T> {
+  const factory ImageSelected({required final File image}) =
+      _$ImageSelectedImpl<T>;
+
+  File get image;
+
+  /// Create a copy of NewTaskState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ImageSelectedImplCopyWith<T, _$ImageSelectedImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }

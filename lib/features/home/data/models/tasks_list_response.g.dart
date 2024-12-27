@@ -16,3 +16,12 @@ TasksListResponse _$TasksListResponseFromJson(Map<String, dynamic> json) =>
       status: json['status'] as String? ?? '',
     );
 
+Map<String, dynamic> _$TasksListResponseToJson(TasksListResponse instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'image': instance.image,
+      'title': instance.title,
+      'desc': instance.desc,
+      'priority': instance.priority,
+      'status': instance.status,
+    };

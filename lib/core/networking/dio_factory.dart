@@ -40,7 +40,6 @@ class DioFactory {
   static void addDioHeaders() async {
     String? accessToken = await TokenStorage.getAccessToken();
     dio?.options.headers = {
-      'Content-Type': 'application/json',
       'Authorization': 'Bearer $accessToken',
     };
   }

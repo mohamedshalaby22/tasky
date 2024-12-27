@@ -16,3 +16,12 @@ ProfileResponse _$ProfileResponseFromJson(Map<String, dynamic> json) =>
       level: json['level'] as String? ?? '',
     );
 
+Map<String, dynamic> _$ProfileResponseToJson(ProfileResponse instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'displayName': instance.userName,
+      'username': instance.phoneNumber,
+      'experienceYears': instance.experienceYears,
+      'address': instance.address,
+      'level': instance.level,
+    };

@@ -1,12 +1,13 @@
-import 'dart:io';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:tasky/core/constants/app_images.dart';
 import 'package:tasky/core/helpers/extensions.dart';
 import 'package:tasky/core/helpers/spacing.dart';
 import 'package:tasky/core/theming/colors.dart';
 import 'package:tasky/core/theming/styles.dart';
+import 'package:tasky/features/new_task/logic/cubit/new_task_cubit.dart';
 import 'package:tasky/features/task_details/ui/widgets/task_details_cards.dart';
 
 class AddImageButton extends StatefulWidget {
@@ -21,7 +22,7 @@ class _AddImageButtonState extends State<AddImageButton> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        if (selectedImage != null)
+        if (context.watch<NewTaskCubit>().selectedImage != null)
           _buildSelectedImagePreview()
         else
           _buildAddImageButton(),
@@ -30,6 +31,7 @@ class _AddImageButtonState extends State<AddImageButton> {
   }
 
   Center _buildSelectedImagePreview() {
+    final taskCubit = context.read<NewTaskCubit>();
     return Center(
       child: Container(
         constraints: const BoxConstraints(maxHeight: 320),
@@ -41,7 +43,7 @@ class _AddImageButtonState extends State<AddImageButton> {
           alignment: Alignment.bottomRight,
           children: [
             Image.file(
-              selectedImage!,
+              taskCubit.selectedImage!,
               fit: BoxFit.contain,
             ),
             PositionedDirectional(
@@ -50,7 +52,7 @@ class _AddImageButtonState extends State<AddImageButton> {
                 child: GestureDetector(
                   onTap: () {
                     setState(() {
-                      selectedImage = null;
+                      taskCubit.selectedImage = null;
                     });
                   },
                   child: const CircleAvatar(
@@ -142,7 +144,7 @@ class _AddImageButtonState extends State<AddImageButton> {
                 verticalSpacing(15),
                 GestureDetector(
                   onTap: () {
-                    _pickImage(ImageSource.gallery);
+                    context.read<NewTaskCubit>().pickImage(ImageSource.gallery);
                     context.pop();
                   },
                   child: buildInfoCard(
@@ -160,7 +162,7 @@ class _AddImageButtonState extends State<AddImageButton> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    _pickImage(ImageSource.camera);
+                    context.read<NewTaskCubit>().pickImage(ImageSource.camera);
                     context.pop();
                   },
                   child: buildInfoCard(
@@ -180,25 +182,5 @@ class _AddImageButtonState extends State<AddImageButton> {
             ),
           );
         });
-  }
-
-  File? selectedImage;
-  Future<void> _pickImage(ImageSource source) async {
-    try {
-      final ImagePicker picker = ImagePicker();
-      final XFile? xFile = await picker.pickImage(
-        source: source,
-        imageQuality: 80,
-        maxWidth: 1024,
-        maxHeight: 1024,
-      );
-      if (xFile != null) {
-        setState(() {
-          selectedImage = File(xFile.path);
-        });
-      }
-    } catch (e) {
-      debugPrint('Error picking image: $e');
-    }
   }
 }
