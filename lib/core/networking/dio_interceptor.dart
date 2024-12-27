@@ -31,7 +31,6 @@ class DioInterceptor extends InterceptorsWrapper {
           // تحديث الـ Authorization Header
           final options = _cloneRequestOptions(err.requestOptions);
           options.headers['Authorization'] = 'Bearer $newAccessToken';
-
           // إعادة إرسال الطلب
           try {
             final retryResponse = await dio.fetch(options);
@@ -72,15 +71,24 @@ class DioInterceptor extends InterceptorsWrapper {
     }
   }
   // for MultipartFile 
-  RequestOptions _cloneRequestOptions(RequestOptions options) {
-    return RequestOptions(
-      path: options.path,
-      method: options.method,
-      headers: options.headers,
-      queryParameters: options.queryParameters,
-      data: options.data is FormData
-          ? FormData.fromMap(Map.fromEntries((options.data as FormData).fields))
-          : options.data,
-    );
-  }
+ RequestOptions _cloneRequestOptions(RequestOptions options) {
+  return RequestOptions(
+    path: options.path,
+    method: options.method,
+    headers: options.headers,
+    queryParameters: options.queryParameters,
+    data: options.data is FormData
+        ? FormData.fromMap({
+            // نسخ الحقول النصية
+            ...Map.fromEntries((options.data as FormData).fields),
+            // نسخ الملفات
+            ...(options.data as FormData)
+                .files
+                .asMap()
+                .map((_, file) => MapEntry(file.key, file.value)),
+          })
+        : options.data,
+  );
+}
+
 }
