@@ -1,10 +1,8 @@
 import 'dart:io';
 import 'package:dio/dio.dart';
-import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:tasky/core/networking/api_constants.dart';
 import 'package:tasky/core/networking/api_result.dart';
 import 'package:tasky/core/networking/dio_factory.dart';
-import 'package:tasky/core/networking/dio_interceptor.dart';
 import 'package:tasky/features/new_task/data/apis/new_task_api_constants.dart';
 import 'package:tasky/features/new_task/data/apis/new_task_api_service.dart';
 import 'package:tasky/features/new_task/data/models/new_task_request_body.dart';
@@ -39,22 +37,20 @@ class NewTaskRepo {
           ),
         ),
       });
+
       final dio = DioFactory.getDio();
       String? accessToken = await TokenStorage.getAccessToken();
-
       if (accessToken == null) {
         return const ApiResult.failure('No access token found');
       }
+
       dio.options.headers['Authorization'] = 'Bearer $accessToken';
+
       final response = await dio.post(
         '${ApiConstants.apiBaseUrl}${NewTaskApiConstants.uploadImage}',
         data: formData,
-        options: Options(
-          method: 'POST',
-          contentType: 'multipart/form-data',
-          validateStatus: (status) => true,
-        ),
       );
+
       return ApiResult.success(UploadImageResponse.fromJson(response.data));
     } catch (error) {
       return ApiResult.failure(error.toString());
@@ -101,3 +97,7 @@ Future<ApiResult<UploadImageResponse>> uploadImage(File imageFile) async {
     }
   }
 */
+
+
+
+

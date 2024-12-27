@@ -5,34 +5,34 @@ import 'package:tasky/features/login/data/models/refresh_token_response.dart';
 
 class DioInterceptor extends InterceptorsWrapper {
   final Dio dio;
+
   DioInterceptor(this.dio);
 
   @override
   onRequest(RequestOptions options, RequestInterceptorHandler handler) async {
     final accessToken = await TokenStorage.getAccessToken();
-
     options.headers['Authorization'] = 'Bearer $accessToken';
-
     return super.onRequest(options, handler);
   }
 
   @override
   onError(DioException err, ErrorInterceptorHandler handler) async {
     if (err.response?.statusCode == 401) {
-      print('Received 401 error, attempting to refresh token...');
       final refreshToken = await TokenStorage.getRefreshToken();
-
       if (refreshToken != null) {
         final refreshResponse = await _refreshAccessToken(refreshToken);
-
         if (refreshResponse != null) {
           final newAccessToken = refreshResponse.accessToken;
           await TokenStorage.saveTokens(
             accessToken: newAccessToken,
             refreshToken: refreshToken,
           );
-          final options = err.requestOptions;
+
+          // تحديث الـ Authorization Header
+          final options = _cloneRequestOptions(err.requestOptions);
           options.headers['Authorization'] = 'Bearer $newAccessToken';
+
+          // إعادة إرسال الطلب
           try {
             final retryResponse = await dio.fetch(options);
             return handler.resolve(retryResponse);
@@ -70,5 +70,17 @@ class DioInterceptor extends InterceptorsWrapper {
     } catch (e) {
       return null;
     }
+  }
+  // for MultipartFile 
+  RequestOptions _cloneRequestOptions(RequestOptions options) {
+    return RequestOptions(
+      path: options.path,
+      method: options.method,
+      headers: options.headers,
+      queryParameters: options.queryParameters,
+      data: options.data is FormData
+          ? FormData.fromMap(Map.fromEntries((options.data as FormData).fields))
+          : options.data,
+    );
   }
 }
