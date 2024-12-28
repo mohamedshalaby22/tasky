@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tasky/core/helpers/spacing.dart';
-import 'package:tasky/core/routing/app_router.dart';
+import 'package:tasky/core/widgets/app_snack_bar.dart';
 import 'package:tasky/core/widgets/app_text_button.dart';
 import 'package:tasky/core/widgets/custom_appbar.dart';
 import 'package:tasky/features/new_task/logic/cubit/new_task_cubit.dart';
@@ -32,7 +32,7 @@ class NewTaskScreen extends StatelessWidget {
                 AppTextButton(
                     buttonText: 'Add task',
                     onPressed: () {
-                      context.read<NewTaskCubit>().uploadImageAndAddData();
+                      validateAndAddTask(context);
                     }),
                 verticalSpacing(20),
                 const NewTaskBlocListener()
@@ -42,5 +42,21 @@ class NewTaskScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void validateAndAddTask(BuildContext context) {
+    final taskCubit = context.read<NewTaskCubit>();
+    if (taskCubit.formKey.currentState!.validate() &&
+        taskCubit.selectedImage != null) {
+      taskCubit.uploadImageAndAddData();
+    } else {
+      if (taskCubit.selectedImage == null ||
+          taskCubit.titleController.text.isEmpty) {
+        AppSnackBar.showSnackBarWidget(
+            context: context,
+            message: 'Please cpmplete all the fields...',
+            backColor: Colors.red[200]!);
+      }
+    }
   }
 }

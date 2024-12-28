@@ -59,6 +59,12 @@ class TextStyles {
     fontWeight: FontWeightHelper.medium,
     fontFamily: AppConstants.appFontFamily,
   );
+  static TextStyle font14WhiteMedium = TextStyle(
+    fontSize: 14.sp,
+    color: Colors.white,
+    fontWeight: FontWeightHelper.medium,
+    fontFamily: AppConstants.appFontFamily,
+  );
   static TextStyle font14MainBlackMedium = TextStyle(
     fontSize: 14.sp,
     color: ColorsManager.mainBlack,

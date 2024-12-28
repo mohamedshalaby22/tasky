@@ -29,6 +29,7 @@ class NewTaskCubit extends Cubit<NewTaskState> {
 
   TextEditingController titleController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
+  final formKey=GlobalKey<FormState>();
   String selectedPriority = 'medium';
   String selectedDate = '';
   Future<void> _addNewTask(String imageUrl) async {
