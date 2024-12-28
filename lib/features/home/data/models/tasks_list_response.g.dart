@@ -8,7 +8,7 @@ part of 'tasks_list_response.dart';
 
 TasksListResponse _$TasksListResponseFromJson(Map<String, dynamic> json) =>
     TasksListResponse(
-      id: json['id'] as String? ?? '',
+      id: json['_id'] as String? ?? '',
       image: json['image'] as String? ?? '',
       title: json['title'] as String? ?? '',
       desc: json['desc'] as String? ?? '',
@@ -19,7 +19,7 @@ TasksListResponse _$TasksListResponseFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$TasksListResponseToJson(TasksListResponse instance) =>
     <String, dynamic>{
-      'id': instance.id,
+      '_id': instance.id,
       'image': instance.image,
       'title': instance.title,
       'desc': instance.desc,

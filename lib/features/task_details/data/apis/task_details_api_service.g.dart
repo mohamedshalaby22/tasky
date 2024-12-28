@@ -36,7 +36,7 @@ class _TaskDetailsApiService implements TaskDetailsApiService {
     )
         .compose(
           _dio.options,
-          'todos/${taskId}',
+          '/todos/${taskId}',
           queryParameters: queryParameters,
           data: _data,
         )

@@ -2,25 +2,22 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tasky/core/theming/colors.dart';
 import 'package:tasky/core/theming/styles.dart';
-import 'package:tasky/features/home/logic/cubit/tasks_cubit.dart';
-import 'package:tasky/features/home/ui/widgets/task_list_view.dart';
+import 'package:tasky/features/task_details/logic/cubit/task_details_cubit.dart';
+import 'package:tasky/features/task_details/ui/widgets/task_details_info.dart';
 
-class TasksBlocBuilder extends StatelessWidget {
-  const TasksBlocBuilder({super.key});
+class TaskDetailsBlocBuilder extends StatelessWidget {
+  const TaskDetailsBlocBuilder({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<TasksCubit, TasksState>(
+    return BlocBuilder<TaskDetailsCubit, TaskDetailsState>(
       buildWhen: (previous, current) =>
-          current is Loading ||
-          current is Success ||
-          current is Error ||
-          current is Empty,
+          current is Loading || current is Success || current is Error,
       builder: (context, state) {
         return state.maybeWhen(loading: () {
           return Padding(
             padding:
-                EdgeInsets.only(top: MediaQuery.sizeOf(context).height / 3.5),
+                EdgeInsets.only(top: MediaQuery.sizeOf(context).height / 3),
             child: const Center(
               child: CupertinoActivityIndicator(
                 color: ColorsManager.mainPurple,
@@ -28,8 +25,6 @@ class TasksBlocBuilder extends StatelessWidget {
               ),
             ),
           );
-        }, empty: () {
-          return setupEmpty(context);
         }, success: (tasksResonse) {
           return setupSuccess(tasksResonse);
         }, error: (errorHandler) {
@@ -41,8 +36,10 @@ class TasksBlocBuilder extends StatelessWidget {
     );
   }
 
-  Widget setupSuccess(tasksList) {
-    return TasksListView(tasksList: tasksList);
+  Widget setupSuccess(tasksDetails) {
+    return TaskDetailsInfo(
+      taskDetailsResponse: tasksDetails,
+    );
   }
 
   Widget setupError() {
@@ -52,7 +49,7 @@ class TasksBlocBuilder extends StatelessWidget {
 
 Widget setupEmpty(BuildContext context) {
   return Padding(
-    padding:  EdgeInsets.only(top: MediaQuery.sizeOf(context).height / 3.5),
+    padding: EdgeInsets.only(top: MediaQuery.sizeOf(context).height / 3.5),
     child: Center(
       child: Text(
         'No Tasks Available',

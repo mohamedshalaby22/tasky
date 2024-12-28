@@ -3,6 +3,7 @@ part 'tasks_list_response.g.dart';
 
 @JsonSerializable()
 class TasksListResponse {
+  @JsonKey(name: '_id')
   String id;
   String image;
   String title;

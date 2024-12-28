@@ -1,3 +1,3 @@
 class TaskDetailsApiConstants {
-  static const String taskDetails = 'todos';
+  static const String taskDetails = '/todos';
 }

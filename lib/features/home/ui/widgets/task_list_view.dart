@@ -19,7 +19,8 @@ class TasksListView extends StatelessWidget {
           return GestureDetector(
             behavior: HitTestBehavior.opaque,
             onTap: () {
-              context.pushNamed(Routes.taskDetailsScreen);
+              context.pushNamed(Routes.taskDetailsScreen,
+                  arguments: tasksList[index].id);
             },
             child: TaskCard(
               imagePath: Assets.imagesTaskImage,

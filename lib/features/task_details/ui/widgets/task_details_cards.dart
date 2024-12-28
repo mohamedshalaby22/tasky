@@ -5,8 +5,8 @@ import 'package:tasky/core/theming/colors.dart';
 import 'package:tasky/core/theming/styles.dart';
 
 class TaskDetailsCards extends StatelessWidget {
-  const TaskDetailsCards({super.key});
-
+  const TaskDetailsCards({super.key, required this.status, required this.date, required this.priority});
+final String status,date,priority;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -25,7 +25,7 @@ class TaskDetailsCards extends StatelessWidget {
                     ),
                     verticalSpacing(3),
                     Text(
-                      '30 June, 2022',
+                     date,
                       style: TextStyles.font14MainBlackMedium,
                     ),
                   ],
@@ -41,7 +41,7 @@ class TaskDetailsCards extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              'Inprogress',
+              status,
               style: TextStyles.font16MainPurpleBold,
             ),
             Image.asset(
@@ -56,7 +56,7 @@ class TaskDetailsCards extends StatelessWidget {
           children: [
             Image.asset(Assets.imagesPurpleFlag, width: 20),
             horizontalSpacing(10),
-            Text('Medium Priority', style: TextStyles.font16MainPurpleBold),
+            Text('$priority Priority', style: TextStyles.font16MainPurpleBold),
             const Spacer(),
             Image.asset(Assets.imagesPurpleArrowDown, width: 15),
           ],

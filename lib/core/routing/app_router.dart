@@ -11,6 +11,7 @@ import 'package:tasky/features/new_task/ui/screens/new_task_screen.dart';
 import 'package:tasky/features/profile/logic/cubit/profile_cubit.dart';
 import 'package:tasky/features/profile/ui/screen/profile_screen.dart';
 import 'package:tasky/features/signup/ui/screens/sign_up_screen.dart';
+import 'package:tasky/features/task_details/logic/cubit/task_details_cubit.dart';
 import 'package:tasky/features/task_details/ui/screens/task_details_screen.dart';
 import '../../features/on_boarding/on_boarding_screen.dart';
 import '../../features/signup/logic/cubit/sign_up_cubit.dart';
@@ -42,13 +43,16 @@ class AppRouter {
           ),
         );
       case Routes.taskDetailsScreen:
-        final args = settings.arguments as Map<String, dynamic>;
-        //for task id
-        final taskId = args['taskId'] as String;
-        return MaterialPageRoute(builder: (_) => const TaskDetailsScreen());
-        
+        final String taskId = settings.arguments as String;
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (BuildContext context) =>
+                TaskDetailsCubit(getIt())..getTaskDetails(taskId: taskId),
+            child: const TaskDetailsScreen(),
+          ),
+        );
       case Routes.newTaskScreen:
-       return MaterialPageRoute(
+        return MaterialPageRoute(
           builder: (_) => BlocProvider(
             create: (BuildContext context) => NewTaskCubit(getIt()),
             child: const NewTaskScreen(),

@@ -18,7 +18,7 @@ class DioInterceptor extends InterceptorsWrapper {
 
   @override
   onError(DioException err, ErrorInterceptorHandler handler) async {
-    if (err.response?.statusCode == 401) {
+    if (err.response?.statusCode == 401) { 
       final refreshToken = await TokenStorage.getRefreshToken();
       if (refreshToken != null) {
         try {

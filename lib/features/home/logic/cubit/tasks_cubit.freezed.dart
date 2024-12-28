@@ -22,6 +22,7 @@ mixin _$TasksState<T> {
     required TResult Function() loading,
     required TResult Function(List<TasksListResponse> todos) success,
     required TResult Function(String message) error,
+    required TResult Function() empty,
     required TResult Function() logoutLoading,
     required TResult Function(T data) logoutSuccess,
     required TResult Function(String message) logoutError,
@@ -33,6 +34,7 @@ mixin _$TasksState<T> {
     TResult? Function()? loading,
     TResult? Function(List<TasksListResponse> todos)? success,
     TResult? Function(String message)? error,
+    TResult? Function()? empty,
     TResult? Function()? logoutLoading,
     TResult? Function(T data)? logoutSuccess,
     TResult? Function(String message)? logoutError,
@@ -44,6 +46,7 @@ mixin _$TasksState<T> {
     TResult Function()? loading,
     TResult Function(List<TasksListResponse> todos)? success,
     TResult Function(String message)? error,
+    TResult Function()? empty,
     TResult Function()? logoutLoading,
     TResult Function(T data)? logoutSuccess,
     TResult Function(String message)? logoutError,
@@ -56,6 +59,7 @@ mixin _$TasksState<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
+    required TResult Function(Empty<T> value) empty,
     required TResult Function(LogoutLoading<T> value) logoutLoading,
     required TResult Function(LogoutSuccess<T> value) logoutSuccess,
     required TResult Function(LogoutError<T> value) logoutError,
@@ -67,6 +71,7 @@ mixin _$TasksState<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(Empty<T> value)? empty,
     TResult? Function(LogoutLoading<T> value)? logoutLoading,
     TResult? Function(LogoutSuccess<T> value)? logoutSuccess,
     TResult? Function(LogoutError<T> value)? logoutError,
@@ -78,6 +83,7 @@ mixin _$TasksState<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
+    TResult Function(Empty<T> value)? empty,
     TResult Function(LogoutLoading<T> value)? logoutLoading,
     TResult Function(LogoutSuccess<T> value)? logoutSuccess,
     TResult Function(LogoutError<T> value)? logoutError,
@@ -152,6 +158,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function() loading,
     required TResult Function(List<TasksListResponse> todos) success,
     required TResult Function(String message) error,
+    required TResult Function() empty,
     required TResult Function() logoutLoading,
     required TResult Function(T data) logoutSuccess,
     required TResult Function(String message) logoutError,
@@ -166,6 +173,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function()? loading,
     TResult? Function(List<TasksListResponse> todos)? success,
     TResult? Function(String message)? error,
+    TResult? Function()? empty,
     TResult? Function()? logoutLoading,
     TResult? Function(T data)? logoutSuccess,
     TResult? Function(String message)? logoutError,
@@ -180,6 +188,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function()? loading,
     TResult Function(List<TasksListResponse> todos)? success,
     TResult Function(String message)? error,
+    TResult Function()? empty,
     TResult Function()? logoutLoading,
     TResult Function(T data)? logoutSuccess,
     TResult Function(String message)? logoutError,
@@ -198,6 +207,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
+    required TResult Function(Empty<T> value) empty,
     required TResult Function(LogoutLoading<T> value) logoutLoading,
     required TResult Function(LogoutSuccess<T> value) logoutSuccess,
     required TResult Function(LogoutError<T> value) logoutError,
@@ -212,6 +222,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(Empty<T> value)? empty,
     TResult? Function(LogoutLoading<T> value)? logoutLoading,
     TResult? Function(LogoutSuccess<T> value)? logoutSuccess,
     TResult? Function(LogoutError<T> value)? logoutError,
@@ -226,6 +237,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
+    TResult Function(Empty<T> value)? empty,
     TResult Function(LogoutLoading<T> value)? logoutLoading,
     TResult Function(LogoutSuccess<T> value)? logoutSuccess,
     TResult Function(LogoutError<T> value)? logoutError,
@@ -287,6 +299,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     required TResult Function() loading,
     required TResult Function(List<TasksListResponse> todos) success,
     required TResult Function(String message) error,
+    required TResult Function() empty,
     required TResult Function() logoutLoading,
     required TResult Function(T data) logoutSuccess,
     required TResult Function(String message) logoutError,
@@ -301,6 +314,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult? Function()? loading,
     TResult? Function(List<TasksListResponse> todos)? success,
     TResult? Function(String message)? error,
+    TResult? Function()? empty,
     TResult? Function()? logoutLoading,
     TResult? Function(T data)? logoutSuccess,
     TResult? Function(String message)? logoutError,
@@ -315,6 +329,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult Function()? loading,
     TResult Function(List<TasksListResponse> todos)? success,
     TResult Function(String message)? error,
+    TResult Function()? empty,
     TResult Function()? logoutLoading,
     TResult Function(T data)? logoutSuccess,
     TResult Function(String message)? logoutError,
@@ -333,6 +348,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
+    required TResult Function(Empty<T> value) empty,
     required TResult Function(LogoutLoading<T> value) logoutLoading,
     required TResult Function(LogoutSuccess<T> value) logoutSuccess,
     required TResult Function(LogoutError<T> value) logoutError,
@@ -347,6 +363,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(Empty<T> value)? empty,
     TResult? Function(LogoutLoading<T> value)? logoutLoading,
     TResult? Function(LogoutSuccess<T> value)? logoutSuccess,
     TResult? Function(LogoutError<T> value)? logoutError,
@@ -361,6 +378,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
+    TResult Function(Empty<T> value)? empty,
     TResult Function(LogoutLoading<T> value)? logoutLoading,
     TResult Function(LogoutSuccess<T> value)? logoutSuccess,
     TResult Function(LogoutError<T> value)? logoutError,
@@ -455,6 +473,7 @@ class _$SuccessImpl<T> implements Success<T> {
     required TResult Function() loading,
     required TResult Function(List<TasksListResponse> todos) success,
     required TResult Function(String message) error,
+    required TResult Function() empty,
     required TResult Function() logoutLoading,
     required TResult Function(T data) logoutSuccess,
     required TResult Function(String message) logoutError,
@@ -469,6 +488,7 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult? Function()? loading,
     TResult? Function(List<TasksListResponse> todos)? success,
     TResult? Function(String message)? error,
+    TResult? Function()? empty,
     TResult? Function()? logoutLoading,
     TResult? Function(T data)? logoutSuccess,
     TResult? Function(String message)? logoutError,
@@ -483,6 +503,7 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult Function()? loading,
     TResult Function(List<TasksListResponse> todos)? success,
     TResult Function(String message)? error,
+    TResult Function()? empty,
     TResult Function()? logoutLoading,
     TResult Function(T data)? logoutSuccess,
     TResult Function(String message)? logoutError,
@@ -501,6 +522,7 @@ class _$SuccessImpl<T> implements Success<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
+    required TResult Function(Empty<T> value) empty,
     required TResult Function(LogoutLoading<T> value) logoutLoading,
     required TResult Function(LogoutSuccess<T> value) logoutSuccess,
     required TResult Function(LogoutError<T> value) logoutError,
@@ -515,6 +537,7 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(Empty<T> value)? empty,
     TResult? Function(LogoutLoading<T> value)? logoutLoading,
     TResult? Function(LogoutSuccess<T> value)? logoutSuccess,
     TResult? Function(LogoutError<T> value)? logoutError,
@@ -529,6 +552,7 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
+    TResult Function(Empty<T> value)? empty,
     TResult Function(LogoutLoading<T> value)? logoutLoading,
     TResult Function(LogoutSuccess<T> value)? logoutSuccess,
     TResult Function(LogoutError<T> value)? logoutError,
@@ -625,6 +649,7 @@ class _$ErrorImpl<T> implements Error<T> {
     required TResult Function() loading,
     required TResult Function(List<TasksListResponse> todos) success,
     required TResult Function(String message) error,
+    required TResult Function() empty,
     required TResult Function() logoutLoading,
     required TResult Function(T data) logoutSuccess,
     required TResult Function(String message) logoutError,
@@ -639,6 +664,7 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult? Function()? loading,
     TResult? Function(List<TasksListResponse> todos)? success,
     TResult? Function(String message)? error,
+    TResult? Function()? empty,
     TResult? Function()? logoutLoading,
     TResult? Function(T data)? logoutSuccess,
     TResult? Function(String message)? logoutError,
@@ -653,6 +679,7 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult Function()? loading,
     TResult Function(List<TasksListResponse> todos)? success,
     TResult Function(String message)? error,
+    TResult Function()? empty,
     TResult Function()? logoutLoading,
     TResult Function(T data)? logoutSuccess,
     TResult Function(String message)? logoutError,
@@ -671,6 +698,7 @@ class _$ErrorImpl<T> implements Error<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
+    required TResult Function(Empty<T> value) empty,
     required TResult Function(LogoutLoading<T> value) logoutLoading,
     required TResult Function(LogoutSuccess<T> value) logoutSuccess,
     required TResult Function(LogoutError<T> value) logoutError,
@@ -685,6 +713,7 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(Empty<T> value)? empty,
     TResult? Function(LogoutLoading<T> value)? logoutLoading,
     TResult? Function(LogoutSuccess<T> value)? logoutSuccess,
     TResult? Function(LogoutError<T> value)? logoutError,
@@ -699,6 +728,7 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
+    TResult Function(Empty<T> value)? empty,
     TResult Function(LogoutLoading<T> value)? logoutLoading,
     TResult Function(LogoutSuccess<T> value)? logoutSuccess,
     TResult Function(LogoutError<T> value)? logoutError,
@@ -721,6 +751,147 @@ abstract class Error<T> implements TasksState<T> {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ErrorImplCopyWith<T, _$ErrorImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$EmptyImplCopyWith<T, $Res> {
+  factory _$$EmptyImplCopyWith(
+          _$EmptyImpl<T> value, $Res Function(_$EmptyImpl<T>) then) =
+      __$$EmptyImplCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$EmptyImplCopyWithImpl<T, $Res>
+    extends _$TasksStateCopyWithImpl<T, $Res, _$EmptyImpl<T>>
+    implements _$$EmptyImplCopyWith<T, $Res> {
+  __$$EmptyImplCopyWithImpl(
+      _$EmptyImpl<T> _value, $Res Function(_$EmptyImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of TasksState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$EmptyImpl<T> implements Empty<T> {
+  const _$EmptyImpl();
+
+  @override
+  String toString() {
+    return 'TasksState<$T>.empty()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$EmptyImpl<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<TasksListResponse> todos) success,
+    required TResult Function(String message) error,
+    required TResult Function() empty,
+    required TResult Function() logoutLoading,
+    required TResult Function(T data) logoutSuccess,
+    required TResult Function(String message) logoutError,
+  }) {
+    return empty();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<TasksListResponse> todos)? success,
+    TResult? Function(String message)? error,
+    TResult? Function()? empty,
+    TResult? Function()? logoutLoading,
+    TResult? Function(T data)? logoutSuccess,
+    TResult? Function(String message)? logoutError,
+  }) {
+    return empty?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<TasksListResponse> todos)? success,
+    TResult Function(String message)? error,
+    TResult Function()? empty,
+    TResult Function()? logoutLoading,
+    TResult Function(T data)? logoutSuccess,
+    TResult Function(String message)? logoutError,
+    required TResult orElse(),
+  }) {
+    if (empty != null) {
+      return empty();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Success<T> value) success,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(Empty<T> value) empty,
+    required TResult Function(LogoutLoading<T> value) logoutLoading,
+    required TResult Function(LogoutSuccess<T> value) logoutSuccess,
+    required TResult Function(LogoutError<T> value) logoutError,
+  }) {
+    return empty(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Success<T> value)? success,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(Empty<T> value)? empty,
+    TResult? Function(LogoutLoading<T> value)? logoutLoading,
+    TResult? Function(LogoutSuccess<T> value)? logoutSuccess,
+    TResult? Function(LogoutError<T> value)? logoutError,
+  }) {
+    return empty?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Success<T> value)? success,
+    TResult Function(Error<T> value)? error,
+    TResult Function(Empty<T> value)? empty,
+    TResult Function(LogoutLoading<T> value)? logoutLoading,
+    TResult Function(LogoutSuccess<T> value)? logoutSuccess,
+    TResult Function(LogoutError<T> value)? logoutError,
+    required TResult orElse(),
+  }) {
+    if (empty != null) {
+      return empty(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Empty<T> implements TasksState<T> {
+  const factory Empty() = _$EmptyImpl<T>;
 }
 
 /// @nodoc
@@ -768,6 +939,7 @@ class _$LogoutLoadingImpl<T> implements LogoutLoading<T> {
     required TResult Function() loading,
     required TResult Function(List<TasksListResponse> todos) success,
     required TResult Function(String message) error,
+    required TResult Function() empty,
     required TResult Function() logoutLoading,
     required TResult Function(T data) logoutSuccess,
     required TResult Function(String message) logoutError,
@@ -782,6 +954,7 @@ class _$LogoutLoadingImpl<T> implements LogoutLoading<T> {
     TResult? Function()? loading,
     TResult? Function(List<TasksListResponse> todos)? success,
     TResult? Function(String message)? error,
+    TResult? Function()? empty,
     TResult? Function()? logoutLoading,
     TResult? Function(T data)? logoutSuccess,
     TResult? Function(String message)? logoutError,
@@ -796,6 +969,7 @@ class _$LogoutLoadingImpl<T> implements LogoutLoading<T> {
     TResult Function()? loading,
     TResult Function(List<TasksListResponse> todos)? success,
     TResult Function(String message)? error,
+    TResult Function()? empty,
     TResult Function()? logoutLoading,
     TResult Function(T data)? logoutSuccess,
     TResult Function(String message)? logoutError,
@@ -814,6 +988,7 @@ class _$LogoutLoadingImpl<T> implements LogoutLoading<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
+    required TResult Function(Empty<T> value) empty,
     required TResult Function(LogoutLoading<T> value) logoutLoading,
     required TResult Function(LogoutSuccess<T> value) logoutSuccess,
     required TResult Function(LogoutError<T> value) logoutError,
@@ -828,6 +1003,7 @@ class _$LogoutLoadingImpl<T> implements LogoutLoading<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(Empty<T> value)? empty,
     TResult? Function(LogoutLoading<T> value)? logoutLoading,
     TResult? Function(LogoutSuccess<T> value)? logoutSuccess,
     TResult? Function(LogoutError<T> value)? logoutError,
@@ -842,6 +1018,7 @@ class _$LogoutLoadingImpl<T> implements LogoutLoading<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
+    TResult Function(Empty<T> value)? empty,
     TResult Function(LogoutLoading<T> value)? logoutLoading,
     TResult Function(LogoutSuccess<T> value)? logoutSuccess,
     TResult Function(LogoutError<T> value)? logoutError,
@@ -932,6 +1109,7 @@ class _$LogoutSuccessImpl<T> implements LogoutSuccess<T> {
     required TResult Function() loading,
     required TResult Function(List<TasksListResponse> todos) success,
     required TResult Function(String message) error,
+    required TResult Function() empty,
     required TResult Function() logoutLoading,
     required TResult Function(T data) logoutSuccess,
     required TResult Function(String message) logoutError,
@@ -946,6 +1124,7 @@ class _$LogoutSuccessImpl<T> implements LogoutSuccess<T> {
     TResult? Function()? loading,
     TResult? Function(List<TasksListResponse> todos)? success,
     TResult? Function(String message)? error,
+    TResult? Function()? empty,
     TResult? Function()? logoutLoading,
     TResult? Function(T data)? logoutSuccess,
     TResult? Function(String message)? logoutError,
@@ -960,6 +1139,7 @@ class _$LogoutSuccessImpl<T> implements LogoutSuccess<T> {
     TResult Function()? loading,
     TResult Function(List<TasksListResponse> todos)? success,
     TResult Function(String message)? error,
+    TResult Function()? empty,
     TResult Function()? logoutLoading,
     TResult Function(T data)? logoutSuccess,
     TResult Function(String message)? logoutError,
@@ -978,6 +1158,7 @@ class _$LogoutSuccessImpl<T> implements LogoutSuccess<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
+    required TResult Function(Empty<T> value) empty,
     required TResult Function(LogoutLoading<T> value) logoutLoading,
     required TResult Function(LogoutSuccess<T> value) logoutSuccess,
     required TResult Function(LogoutError<T> value) logoutError,
@@ -992,6 +1173,7 @@ class _$LogoutSuccessImpl<T> implements LogoutSuccess<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(Empty<T> value)? empty,
     TResult? Function(LogoutLoading<T> value)? logoutLoading,
     TResult? Function(LogoutSuccess<T> value)? logoutSuccess,
     TResult? Function(LogoutError<T> value)? logoutError,
@@ -1006,6 +1188,7 @@ class _$LogoutSuccessImpl<T> implements LogoutSuccess<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
+    TResult Function(Empty<T> value)? empty,
     TResult Function(LogoutLoading<T> value)? logoutLoading,
     TResult Function(LogoutSuccess<T> value)? logoutSuccess,
     TResult Function(LogoutError<T> value)? logoutError,
@@ -1103,6 +1286,7 @@ class _$LogoutErrorImpl<T> implements LogoutError<T> {
     required TResult Function() loading,
     required TResult Function(List<TasksListResponse> todos) success,
     required TResult Function(String message) error,
+    required TResult Function() empty,
     required TResult Function() logoutLoading,
     required TResult Function(T data) logoutSuccess,
     required TResult Function(String message) logoutError,
@@ -1117,6 +1301,7 @@ class _$LogoutErrorImpl<T> implements LogoutError<T> {
     TResult? Function()? loading,
     TResult? Function(List<TasksListResponse> todos)? success,
     TResult? Function(String message)? error,
+    TResult? Function()? empty,
     TResult? Function()? logoutLoading,
     TResult? Function(T data)? logoutSuccess,
     TResult? Function(String message)? logoutError,
@@ -1131,6 +1316,7 @@ class _$LogoutErrorImpl<T> implements LogoutError<T> {
     TResult Function()? loading,
     TResult Function(List<TasksListResponse> todos)? success,
     TResult Function(String message)? error,
+    TResult Function()? empty,
     TResult Function()? logoutLoading,
     TResult Function(T data)? logoutSuccess,
     TResult Function(String message)? logoutError,
@@ -1149,6 +1335,7 @@ class _$LogoutErrorImpl<T> implements LogoutError<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
+    required TResult Function(Empty<T> value) empty,
     required TResult Function(LogoutLoading<T> value) logoutLoading,
     required TResult Function(LogoutSuccess<T> value) logoutSuccess,
     required TResult Function(LogoutError<T> value) logoutError,
@@ -1163,6 +1350,7 @@ class _$LogoutErrorImpl<T> implements LogoutError<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(Empty<T> value)? empty,
     TResult? Function(LogoutLoading<T> value)? logoutLoading,
     TResult? Function(LogoutSuccess<T> value)? logoutSuccess,
     TResult? Function(LogoutError<T> value)? logoutError,
@@ -1177,6 +1365,7 @@ class _$LogoutErrorImpl<T> implements LogoutError<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
+    TResult Function(Empty<T> value)? empty,
     TResult Function(LogoutLoading<T> value)? logoutLoading,
     TResult Function(LogoutSuccess<T> value)? logoutSuccess,
     TResult Function(LogoutError<T> value)? logoutError,

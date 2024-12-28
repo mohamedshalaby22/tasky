@@ -17,8 +17,12 @@ class TasksCubit extends Cubit<TasksState> {
     emit(const TasksState.loading());
     final response = await _todosRepo.getTodos();
     response.when(success: (todosListModel) {
-      todos = todosListModel;
-      emit(TasksState.success(todos));
+      if (todosListModel.isNotEmpty) {
+        todos = todosListModel;
+        emit(TasksState.success(todos));
+      } else {
+        emit(const TasksState.empty());
+      }
     }, failure: (error) {
       emit(TasksState.error(message: error.toString()));
     });

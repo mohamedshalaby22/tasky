@@ -12,18 +12,15 @@ class TaskDetailsResponse {
   String status;
   @JsonKey(name: 'user')
   String userId;
-  @JsonKey(name: 'createdAt')
-  String dueDate;
 
   TaskDetailsResponse({
-    required this.id,
-    required this.image,
-    required this.title,
-    required this.desc,
-    required this.priority,
-    required this.status,
-    required this.userId,
-    required this.dueDate,
+    this.id = '',
+    this.image = '',
+    this.title = '',
+    this.desc = '',
+    this.priority = '',
+    this.status = '',
+    this.userId = '',
   });
 
   factory TaskDetailsResponse.fromJson(Map<String, dynamic> json) =>

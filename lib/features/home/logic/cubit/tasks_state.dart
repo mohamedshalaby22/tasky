@@ -6,6 +6,7 @@ class TasksState<T> with _$TasksState {
   const factory TasksState.loading() = Loading;
   const factory TasksState.success(List<TasksListResponse> todos) = Success;
   const factory TasksState.error({required String message}) = Error;
+  const factory TasksState.empty() = Empty;
 
   // logout states
   const factory TasksState.logoutLoading() = LogoutLoading;
