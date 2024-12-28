@@ -5,13 +5,14 @@ import 'package:tasky/features/login/data/models/refresh_token_response.dart';
 
 class DioInterceptor extends InterceptorsWrapper {
   final Dio dio;
-
   DioInterceptor(this.dio);
 
   @override
   onRequest(RequestOptions options, RequestInterceptorHandler handler) async {
     final accessToken = await TokenStorage.getAccessToken();
-    options.headers['Authorization'] = 'Bearer $accessToken';
+    if (accessToken != null) {
+      options.headers['Authorization'] = 'Bearer $accessToken';
+    }
     return super.onRequest(options, handler);
   }
 
@@ -20,28 +21,39 @@ class DioInterceptor extends InterceptorsWrapper {
     if (err.response?.statusCode == 401) {
       final refreshToken = await TokenStorage.getRefreshToken();
       if (refreshToken != null) {
-        final refreshResponse = await _refreshAccessToken(refreshToken);
-        if (refreshResponse != null) {
-          final newAccessToken = refreshResponse.accessToken;
-          await TokenStorage.saveTokens(
-            accessToken: newAccessToken,
-            refreshToken: refreshToken,
-          );
+        try {
+          final refreshResponse = await _refreshAccessToken(refreshToken);
+          if (refreshResponse != null) {
+            final newAccessToken = refreshResponse.accessToken;
+            await TokenStorage.saveTokens(
+              accessToken: newAccessToken,
+              refreshToken: refreshToken,
+            );
 
-          // تحديث الـ Authorization Header
-          final options = _cloneRequestOptions(err.requestOptions);
-          options.headers['Authorization'] = 'Bearer $newAccessToken';
-          // إعادة إرسال الطلب
-          try {
+            RequestOptions options = err.requestOptions;
+
+            // إذا كانت البيانات هي FormData، قم بتحديثها
+            if (options.data is FormData) {
+              options = _cloneRequestOptions(options);
+              options.headers['Authorization'] = 'Bearer $newAccessToken';
+            } else {
+              options.headers['Authorization'] = 'Bearer $newAccessToken';
+            }
+
+            // إعادة إرسال الطلب
             final retryResponse = await dio.fetch(options);
             return handler.resolve(retryResponse);
-          } catch (e) {
-            return handler.reject(err);
+          } else {
+            return handler.reject(DioException(
+              requestOptions: err.requestOptions,
+              error: 'Refresh token invalid or expired',
+              type: DioExceptionType.badResponse,
+            ));
           }
-        } else {
+        } catch (e) {
           return handler.reject(DioException(
             requestOptions: err.requestOptions,
-            error: 'Refresh token invalid or expired',
+            error: 'Error refreshing token: $e',
             type: DioExceptionType.badResponse,
           ));
         }
@@ -67,28 +79,26 @@ class DioInterceptor extends InterceptorsWrapper {
       }
       return null;
     } catch (e) {
-      return null;
+      throw Exception('Error refreshing token: $e');
     }
   }
-  // for MultipartFile 
- RequestOptions _cloneRequestOptions(RequestOptions options) {
-  return RequestOptions(
-    path: options.path,
-    method: options.method,
-    headers: options.headers,
-    queryParameters: options.queryParameters,
-    data: options.data is FormData
-        ? FormData.fromMap({
-            // نسخ الحقول النصية
-            ...Map.fromEntries((options.data as FormData).fields),
-            // نسخ الملفات
-            ...(options.data as FormData)
-                .files
-                .asMap()
-                .map((_, file) => MapEntry(file.key, file.value)),
-          })
-        : options.data,
-  );
-}
 
+  // for MultipartFile
+  RequestOptions _cloneRequestOptions(RequestOptions options) {
+    return RequestOptions(
+      path: options.path,
+      method: options.method,
+      headers: {...options.headers}, // نسخ الهيدرز الأصلية
+      queryParameters: options.queryParameters,
+      data: FormData.fromMap({
+        // نسخ الحقول النصية
+        ...Map.fromEntries((options.data as FormData).fields),
+        // نسخ الملفات مع الحقول النصية
+        ...(options.data as FormData)
+            .files
+            .asMap()
+            .map((_, file) => MapEntry(file.key, file.value)),
+      }),
+    );
+  }
 }

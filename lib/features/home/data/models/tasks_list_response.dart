@@ -9,6 +9,8 @@ class TasksListResponse {
   String desc;
   String priority;
   String status;
+  @JsonKey(name: 'createdAt')
+  String dueDate;
 
   TasksListResponse({
     this.id = '',
@@ -17,6 +19,7 @@ class TasksListResponse {
     this.desc = '',
     this.priority = '',
     this.status = '',
+    this.dueDate = '',
   });
 
   factory TasksListResponse.fromJson(Map<String, dynamic> json) =>

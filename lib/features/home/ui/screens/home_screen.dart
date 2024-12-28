@@ -5,6 +5,7 @@ import 'package:tasky/features/home/ui/widgets/floating_action_buttons.dart';
 import 'package:tasky/features/home/ui/widgets/home_app_bar.dart';
 import 'package:tasky/features/home/ui/widgets/task_list_view.dart';
 import 'package:tasky/features/home/ui/widgets/task_status_list.dart';
+import 'package:tasky/features/home/ui/widgets/tasks_bloc_builder.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -29,11 +30,10 @@ class HomeScreen extends StatelessWidget {
             verticalSpacing(15),
             const TaskStatusList(),
             verticalSpacing(20),
-            const TasksListView()
+            const TasksBlocBuilder(),
           ],
         ),
       ),
     );
   }
 }
-

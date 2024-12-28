@@ -11,7 +11,7 @@ AddNewTaskRequestBody _$AddNewTaskRequestBodyFromJson(
     AddNewTaskRequestBody(
       image: json['image'] as String,
       title: json['title'] as String,
-      des: json['des'] as String,
+      desc: json['desc'] as String,
       priority: json['priority'] as String,
       dueDate: json['dueDate'] as String,
     );
@@ -21,7 +21,7 @@ Map<String, dynamic> _$AddNewTaskRequestBodyToJson(
     <String, dynamic>{
       'image': instance.image,
       'title': instance.title,
-      'des': instance.des,
+      'desc': instance.desc,
       'priority': instance.priority,
       'dueDate': instance.dueDate,
     };

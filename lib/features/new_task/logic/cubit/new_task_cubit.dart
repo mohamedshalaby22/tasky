@@ -19,7 +19,6 @@ class NewTaskCubit extends Cubit<NewTaskState> {
       success: (imageUploadResponse) async {
         String imageUrl = imageUploadResponse.image;
         _addNewTask(imageUrl);
-        print(imageUploadResponse.toString());
         emit(NewTaskState.success(imageUploadResponse));
       },
       failure: (message) {
@@ -28,22 +27,24 @@ class NewTaskCubit extends Cubit<NewTaskState> {
     );
   }
 
+  TextEditingController titleController = TextEditingController();
+  TextEditingController descriptionController = TextEditingController();
+  String selectedPriority = 'medium';
+  String selectedDate = '';
   Future<void> _addNewTask(String imageUrl) async {
     final requestBody = AddNewTaskRequestBody(
-      title: 'title',
-      des: 'description',
+      title: titleController.text,
+      desc: descriptionController.text,
       image: imageUrl,
-      priority: 'Low',
-      dueDate: '30/12/2022',
+      priority: selectedPriority,
+      dueDate: selectedDate,
     );
 
     try {
       final addTaskResponse = await _newTaskRepo.addNewTask(requestBody);
-
       addTaskResponse.when(
         success: (response) {
           emit(NewTaskState.success(response));
-          print(response.toString());
         },
         failure: (error) {
           emit(NewTaskState.error(error: error.toString()));

@@ -4,6 +4,8 @@ import 'package:tasky/core/helpers/extensions.dart';
 import 'package:tasky/core/theming/colors.dart';
 import 'package:tasky/features/new_task/logic/cubit/new_task_cubit.dart';
 
+import '../../../../core/routing/routes.dart';
+
 class NewTaskBlocListener extends StatelessWidget {
   const NewTaskBlocListener({super.key});
 
@@ -26,6 +28,8 @@ class NewTaskBlocListener extends StatelessWidget {
           },
           success: (response) {
             context.pop();
+            context.pop();
+            
           },
           error: (error) {},
         );

@@ -18,6 +18,7 @@ class _ChoosePriorityButtonState extends State<ChoosePriorityButton> {
     'Medium Priority',
     'High Priority',
   ];
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -34,7 +35,7 @@ class _ChoosePriorityButtonState extends State<ChoosePriorityButton> {
         onSelected: (value) {
           setState(() {
             selectedValue = value;
-            widget.onSelect(value);
+            widget.onSelect(selectedValue.split(' ')[0].toLowerCase());
           });
         },
         itemBuilder: (BuildContext context) {
@@ -51,7 +52,7 @@ class _ChoosePriorityButtonState extends State<ChoosePriorityButton> {
         },
         child: Row(
           children: [
-            Image.asset( Assets.imagesPurpleFlag, width: 20),
+            Image.asset(Assets.imagesPurpleFlag, width: 20),
             horizontalSpacing(10),
             Text(selectedValue, style: TextStyles.font16MainPurpleBold),
             const Spacer(),

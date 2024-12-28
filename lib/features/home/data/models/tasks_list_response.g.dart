@@ -14,6 +14,7 @@ TasksListResponse _$TasksListResponseFromJson(Map<String, dynamic> json) =>
       desc: json['desc'] as String? ?? '',
       priority: json['priority'] as String? ?? '',
       status: json['status'] as String? ?? '',
+      dueDate: json['createdAt'] as String? ?? '',
     );
 
 Map<String, dynamic> _$TasksListResponseToJson(TasksListResponse instance) =>
@@ -24,4 +25,5 @@ Map<String, dynamic> _$TasksListResponseToJson(TasksListResponse instance) =>
       'desc': instance.desc,
       'priority': instance.priority,
       'status': instance.status,
+      'createdAt': instance.dueDate,
     };

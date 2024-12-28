@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tasky/core/helpers/spacing.dart';
 import 'package:tasky/core/theming/styles.dart';
 import 'package:tasky/core/widgets/app_text_form_field.dart';
 import 'package:tasky/features/new_task/ui/widgets/choose_priority_button.dart';
 import 'package:tasky/features/new_task/ui/widgets/date_picker_button.dart';
+
+import '../../logic/cubit/new_task_cubit.dart';
 
 class NewTaskForms extends StatefulWidget {
   const NewTaskForms({super.key});
@@ -24,6 +27,7 @@ class _NewTaskFormsState extends State<NewTaskForms> {
         ),
         verticalSpacing(8),
         AppTextFormField(
+            controller: context.read<NewTaskCubit>().titleController,
             hintText: 'Enter title here...',
             validator: (value) {
               if (value != null && value.isEmpty) {
@@ -37,6 +41,7 @@ class _NewTaskFormsState extends State<NewTaskForms> {
         ),
         verticalSpacing(8),
         AppTextFormField(
+            controller: context.read<NewTaskCubit>().descriptionController,
             hintText: 'Enter description here...',
             maxLines: 6,
             validator: (value) {
@@ -50,7 +55,12 @@ class _NewTaskFormsState extends State<NewTaskForms> {
           style: TextStyles.font14GreyRegular,
         ),
         verticalSpacing(8),
-        ChoosePriorityButton(onSelect: (priority) {}),
+        ChoosePriorityButton(onSelect: (priority) {
+          setState(() {
+            print(priority);
+            context.read<NewTaskCubit>().selectedPriority = priority;
+          });
+        }),
         verticalSpacing(15),
         Text(
           'Due date',
@@ -58,7 +68,11 @@ class _NewTaskFormsState extends State<NewTaskForms> {
         ),
         verticalSpacing(8),
         DatePickerButton(
-          onSelect: (String date) {},
+          onSelect: (String date) {
+            setState(() {
+              context.read<NewTaskCubit>().selectedDate = date;
+            });
+          },
         ),
       ],
     );
