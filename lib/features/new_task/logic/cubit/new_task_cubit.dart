@@ -10,15 +10,17 @@ part 'new_task_cubit.freezed.dart';
 
 class NewTaskCubit extends Cubit<NewTaskState> {
   final NewTaskRepo _newTaskRepo;
+
   NewTaskCubit(this._newTaskRepo) : super(const NewTaskState.initial());
 
   void uploadImageAndAddData() async {
     emit(const NewTaskState.loading());
+
     final imageUploadResponse = await _newTaskRepo.uploadImage(selectedImage!);
     imageUploadResponse.when(
       success: (imageUploadResponse) async {
-        String imageUrl = imageUploadResponse.image;
-        _addNewTask(imageUrl);
+        String imageUrl = imageUploadResponse.image.trim();
+        await _addNewTask(imageUrl);
         emit(NewTaskState.success(imageUploadResponse));
       },
       failure: (message) {
@@ -29,7 +31,7 @@ class NewTaskCubit extends Cubit<NewTaskState> {
 
   TextEditingController titleController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
-  final formKey=GlobalKey<FormState>();
+  final formKey = GlobalKey<FormState>();
   String selectedPriority = 'medium';
   String selectedDate = '';
   Future<void> _addNewTask(String imageUrl) async {

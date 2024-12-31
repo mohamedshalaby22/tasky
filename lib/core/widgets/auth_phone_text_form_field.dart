@@ -5,11 +5,21 @@ import 'package:tasky/core/theming/colors.dart';
 import 'package:tasky/core/theming/styles.dart';
 
 class AuthPhoneTextFormField extends StatelessWidget {
-  const AuthPhoneTextFormField({super.key, required this.controller});
+  const AuthPhoneTextFormField({
+    super.key,
+    required this.controller,
+  });
   final TextEditingController controller;
   @override
   Widget build(BuildContext context) {
     return IntlPhoneField(
+      validator: (value) {
+        if (value == null || value.number.isEmpty) {
+          return 'Please enter a phone number';
+        }
+        return null;
+      },
+      keyboardType: TextInputType.phone,
       controller: controller,
       initialCountryCode: 'EG',
       flagsButtonMargin: const EdgeInsets.only(left: 10),

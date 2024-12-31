@@ -4,6 +4,7 @@ import 'package:tasky/core/helpers/extensions.dart';
 import 'package:tasky/features/home/logic/cubit/tasks_cubit.dart';
 import '../../../../core/routing/routes.dart';
 import '../../../../core/theming/colors.dart';
+import '../../../../core/widgets/app_snack_bar.dart';
 
 class LogoutBlocListener extends StatelessWidget {
   const LogoutBlocListener({super.key});
@@ -29,13 +30,19 @@ class LogoutBlocListener extends StatelessWidget {
             );
           },
           logoutSuccess: (logoutResponse) {
-           
             context.pop();
             context.pushReplacementNamed(Routes.onBoardingScreen);
+            AppSnackBar.showSnackBarWidget(
+              context: context,
+              message: 'Logout Succesfully!',
+            );
           },
           logoutError: (error) {
             context.pop();
-           
+            AppSnackBar.showSnackBarWidget(
+                context: context,
+                message: error.toString(),
+                backColor: Colors.red[200]!);
           },
         );
       },

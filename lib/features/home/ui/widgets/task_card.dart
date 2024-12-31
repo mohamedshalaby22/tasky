@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tasky/core/constants/app_constants.dart';
+import 'package:tasky/core/constants/app_images.dart';
 import 'package:tasky/core/helpers/capitalize_first.dart';
 import 'package:tasky/core/helpers/spacing.dart';
 import 'package:tasky/core/theming/font_weight_helper.dart';
@@ -30,7 +31,7 @@ class TaskCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Image.asset(
-                  imagePath,
+                 Assets.imagesTaskImage,
                   width: 70,
                   fit: BoxFit.contain,
                 ),

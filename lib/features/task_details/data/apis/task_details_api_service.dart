@@ -11,4 +11,7 @@ abstract class TaskDetailsApiService {
 
   @GET('${TaskDetailsApiConstants.taskDetails}/{taskId}')
   Future<TaskDetailsResponse> getTaskDetails(@Path('taskId') String taskId);
+
+  @DELETE('${TaskDetailsApiConstants.taskDetails}/{taskId}')
+  Future deleteTask(@Path('taskId') String taskId);
 }

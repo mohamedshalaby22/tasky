@@ -7,7 +7,6 @@ import 'package:tasky/core/widgets/custom_appbar.dart';
 import 'package:tasky/features/new_task/logic/cubit/new_task_cubit.dart';
 import 'package:tasky/features/new_task/ui/widgets/add_image_button.dart';
 import 'package:tasky/features/new_task/ui/widgets/new_task_forms.dart';
-
 import '../widgets/new_task_bloc_listener.dart';
 
 class NewTaskScreen extends StatelessWidget {
@@ -46,17 +45,16 @@ class NewTaskScreen extends StatelessWidget {
 
   void validateAndAddTask(BuildContext context) {
     final taskCubit = context.read<NewTaskCubit>();
+
     if (taskCubit.formKey.currentState!.validate() &&
-        taskCubit.selectedImage != null) {
+        taskCubit.selectedImage != null &&
+        taskCubit.selectedDate.isNotEmpty) {
       taskCubit.uploadImageAndAddData();
     } else {
-      if (taskCubit.selectedImage == null ||
-          taskCubit.titleController.text.isEmpty) {
-        AppSnackBar.showSnackBarWidget(
-            context: context,
-            message: 'Please cpmplete all the fields...',
-            backColor: Colors.red[200]!);
-      }
+      AppSnackBar.showSnackBarWidget(
+          context: context,
+          message: 'Please cpmplete all the fields...',
+          backColor: Colors.red[200]!);
     }
   }
 }

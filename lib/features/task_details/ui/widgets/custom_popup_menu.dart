@@ -3,8 +3,9 @@ import 'package:flutter_popup/flutter_popup.dart';
 import 'package:tasky/core/theming/styles.dart';
 
 class CustomPopupMenu extends StatelessWidget {
-  const CustomPopupMenu({super.key});
-
+  const CustomPopupMenu(
+      {super.key, required this.onEdit, required this.onDelete});
+  final Function onEdit, onDelete;
   @override
   Widget build(BuildContext context) {
     return CustomPopup(
@@ -16,14 +17,20 @@ class CustomPopupMenu extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              'Edit',
-              style: TextStyles.font16MainBlackMedium,
+            GestureDetector(
+              onTap: () => onEdit(),
+              child: Text(
+                'Edit',
+                style: TextStyles.font16MainBlackMedium,
+              ),
             ),
             const Divider(thickness: 0.3),
-            Text(
-              'Delete',
-              style: TextStyles.font16RedMedium,
+            GestureDetector(
+              onTap: () => onDelete(),
+              child: Text(
+                'Delete',
+                style: TextStyles.font16RedMedium,
+              ),
             ),
           ],
         ),

@@ -6,6 +6,7 @@ import 'package:tasky/core/helpers/spacing.dart';
 import 'package:tasky/core/theming/colors.dart';
 import 'package:tasky/core/theming/styles.dart';
 import '../../../../core/constants/app_images.dart';
+import '../../../../core/widgets/app_snack_bar.dart';
 
 class UserProfileInfoRow extends StatelessWidget {
   const UserProfileInfoRow(
@@ -44,6 +45,10 @@ class UserProfileInfoRow extends StatelessWidget {
           if (canCopy)
             GestureDetector(
                 onTap: () async {
+                  AppSnackBar.showSnackBarWidget(
+                    context: context,
+                    message: 'Phone Copied Successfully!',
+                  );
                   Clipboard.setData(ClipboardData(text: subTitle));
                   await HapticFeedbackExtension.vibrateSelection();
                 },

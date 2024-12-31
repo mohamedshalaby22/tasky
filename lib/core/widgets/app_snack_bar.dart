@@ -3,6 +3,7 @@ import 'package:tasky/core/theming/colors.dart';
 import 'package:tasky/core/theming/styles.dart';
 
 class AppSnackBar {
+
   static showSnackBarWidget(
       {required BuildContext context,
       required String message,
@@ -13,6 +14,8 @@ class AppSnackBar {
         behavior: SnackBarBehavior.floating,
         content: Text(
           message,
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis,
           style: TextStyles.font14WhiteMedium,
         )));
   }

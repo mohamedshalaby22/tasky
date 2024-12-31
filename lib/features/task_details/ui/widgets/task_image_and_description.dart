@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tasky/core/helpers/capitalize_first.dart';
 import 'package:tasky/core/helpers/spacing.dart';
 import 'package:tasky/core/theming/styles.dart';
 
@@ -13,9 +14,9 @@ class TaskImageAndDescription extends StatelessWidget {
       children: [
         Image.asset('assets/images/task_image.png'),
         verticalSpacing(10),
-        Text(title, style: TextStyles.font24MainBlackBold),
+        Text(title.capitalizeFirst(), style: TextStyles.font24MainBlackBold),
         verticalSpacing(5),
-        Text(description,
+        Text(description.capitalizeFirst(),
             style: TextStyles.font14GreyRegular.copyWith(height: 2)),
       ],
     );

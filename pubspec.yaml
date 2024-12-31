@@ -30,6 +30,7 @@ dependencies:
   json_serializable: ^6.9.0
   pretty_dio_logger: ^1.4.0
   pretty_qr_code: ^3.3.0
+  qr_code_scanner_plus: ^2.0.6
   retrofit: ^4.4.1
   retrofit_generator: ^9.1.5
 

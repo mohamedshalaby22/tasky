@@ -42,9 +42,7 @@ class NewTaskRepo {
       if (accessToken == null) {
         return const ApiResult.failure('No access token found');
       }
-
       dio.options.headers['Authorization'] = 'Bearer $accessToken';
-
       final response = await dio.post(
         '${ApiConstants.apiBaseUrl}${NewTaskApiConstants.uploadImage}',
         data: formData,

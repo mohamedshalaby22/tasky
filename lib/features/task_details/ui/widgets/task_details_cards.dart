@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tasky/core/constants/app_images.dart';
+import 'package:tasky/core/helpers/capitalize_first.dart';
 import 'package:tasky/core/helpers/spacing.dart';
 import 'package:tasky/core/theming/colors.dart';
 import 'package:tasky/core/theming/styles.dart';
@@ -41,7 +42,7 @@ final String status,date,priority;
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              status,
+              status.capitalizeFirst(),
               style: TextStyles.font16MainPurpleBold,
             ),
             Image.asset(
@@ -56,7 +57,7 @@ final String status,date,priority;
           children: [
             Image.asset(Assets.imagesPurpleFlag, width: 20),
             horizontalSpacing(10),
-            Text('$priority Priority', style: TextStyles.font16MainPurpleBold),
+            Text('$priority Priority'.capitalizeFirst(), style: TextStyles.font16MainPurpleBold),
             const Spacer(),
             Image.asset(Assets.imagesPurpleArrowDown, width: 15),
           ],

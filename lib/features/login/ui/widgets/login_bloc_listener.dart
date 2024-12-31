@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tasky/core/helpers/extensions.dart';
+import 'package:tasky/core/widgets/app_snack_bar.dart';
 import 'package:tasky/features/login/logic/cubit/login_cubit.dart';
 import '../../../../core/routing/routes.dart';
 import '../../../../core/theming/colors.dart';
-import '../../../../core/theming/styles.dart';
 
 class LoginBlocListener extends StatelessWidget {
   const LoginBlocListener({super.key});
@@ -28,44 +28,23 @@ class LoginBlocListener extends StatelessWidget {
           },
           success: (loginResponse) {
             context.pop();
-            context.pushReplacementNamed(Routes.homeScreen);
+            context.pushNamedAndRemoveUntil(Routes.homeScreen,
+                predicate: (Route<dynamic> route) => false);
+            AppSnackBar.showSnackBarWidget(
+              context: context,
+              message: 'Login Succesfully!',
+            );
           },
           error: (error) {
-            setupErrorState(context, error);
+            context.pop();
+            AppSnackBar.showSnackBarWidget(
+                context: context,
+                message: error.toString(),
+                backColor: Colors.red[200]!);
           },
         );
       },
       child: const SizedBox.shrink(),
-    );
-  }
-
-  void setupErrorState(BuildContext context, String error) {
-    context.pop();
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        backgroundColor: Colors.white,
-        icon: const Icon(
-          Icons.error,
-          color: Colors.red,
-          size: 32,
-        ),
-        content: Text(
-          error,
-          style: TextStyles.font16GreyRegular,
-        ),
-        actions: [
-          TextButton(
-            onPressed: () {
-              context.pop();
-            },
-            child: Text(
-              'Got it',
-              style: TextStyles.font14MainPurplMedium,
-            ),
-          ),
-        ],
-      ),
     );
   }
 }

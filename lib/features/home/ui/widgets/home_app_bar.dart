@@ -60,7 +60,8 @@ Future<dynamic> _logoutSheet(BuildContext context) {
   return showModalBottomSheet(
     elevation: 0.0,
     backgroundColor: Colors.white,
-    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+    shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
     context: context,
     builder: (context) {
       return Container(
@@ -89,7 +90,6 @@ Future<dynamic> _logoutSheet(BuildContext context) {
             GestureDetector(
               onTap: () {
                 tasksCubit.logout();
-
               },
               child: buildInfoCard(
                   child: Row(

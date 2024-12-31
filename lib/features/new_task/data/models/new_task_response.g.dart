@@ -14,18 +14,7 @@ AddNewTaskResponse _$AddNewTaskResponseFromJson(Map<String, dynamic> json) =>
       priority: json['priority'] as String,
       status: json['status'] as String,
       user: json['user'] as String,
-      id: json['id'] as String,
+      id: json['_id'] as String,
       dueDate: json['createdAt'] as String,
     );
 
-Map<String, dynamic> _$AddNewTaskResponseToJson(AddNewTaskResponse instance) =>
-    <String, dynamic>{
-      'image': instance.image,
-      'title': instance.title,
-      'desc': instance.desc,
-      'priority': instance.priority,
-      'status': instance.status,
-      'user': instance.user,
-      'id': instance.id,
-      'createdAt': instance.dueDate,
-    };

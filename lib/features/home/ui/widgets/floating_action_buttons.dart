@@ -25,7 +25,9 @@ class FloatingActionButtons extends StatelessWidget {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(50),
             ),
-            onPressed: () {},
+            onPressed: () {
+              context.pushNamed(Routes.qrViewScreen);
+            },
             child: Image.asset(
               Assets.imagesBarcodeIcon,
               width: 20,

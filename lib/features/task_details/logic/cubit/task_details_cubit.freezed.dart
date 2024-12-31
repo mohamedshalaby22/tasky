@@ -22,6 +22,9 @@ mixin _$TaskDetailsState {
     required TResult Function() loading,
     required TResult Function(TaskDetailsResponse taskDetails) success,
     required TResult Function(String error) error,
+    required TResult Function() deleteLoading,
+    required TResult Function() deleteSuccess,
+    required TResult Function(String message) deleteError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +33,9 @@ mixin _$TaskDetailsState {
     TResult? Function()? loading,
     TResult? Function(TaskDetailsResponse taskDetails)? success,
     TResult? Function(String error)? error,
+    TResult? Function()? deleteLoading,
+    TResult? Function()? deleteSuccess,
+    TResult? Function(String message)? deleteError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +44,9 @@ mixin _$TaskDetailsState {
     TResult Function()? loading,
     TResult Function(TaskDetailsResponse taskDetails)? success,
     TResult Function(String error)? error,
+    TResult Function()? deleteLoading,
+    TResult Function()? deleteSuccess,
+    TResult Function(String message)? deleteError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +56,9 @@ mixin _$TaskDetailsState {
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
     required TResult Function(Error value) error,
+    required TResult Function(DeleteLoading value) deleteLoading,
+    required TResult Function(DeleteSuccess value) deleteSuccess,
+    required TResult Function(DeleteError value) deleteError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +67,9 @@ mixin _$TaskDetailsState {
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
     TResult? Function(Error value)? error,
+    TResult? Function(DeleteLoading value)? deleteLoading,
+    TResult? Function(DeleteSuccess value)? deleteSuccess,
+    TResult? Function(DeleteError value)? deleteError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +78,9 @@ mixin _$TaskDetailsState {
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
     TResult Function(Error value)? error,
+    TResult Function(DeleteLoading value)? deleteLoading,
+    TResult Function(DeleteSuccess value)? deleteSuccess,
+    TResult Function(DeleteError value)? deleteError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -134,6 +152,9 @@ class _$InitialImpl implements _Initial {
     required TResult Function() loading,
     required TResult Function(TaskDetailsResponse taskDetails) success,
     required TResult Function(String error) error,
+    required TResult Function() deleteLoading,
+    required TResult Function() deleteSuccess,
+    required TResult Function(String message) deleteError,
   }) {
     return initial();
   }
@@ -145,6 +166,9 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? loading,
     TResult? Function(TaskDetailsResponse taskDetails)? success,
     TResult? Function(String error)? error,
+    TResult? Function()? deleteLoading,
+    TResult? Function()? deleteSuccess,
+    TResult? Function(String message)? deleteError,
   }) {
     return initial?.call();
   }
@@ -156,6 +180,9 @@ class _$InitialImpl implements _Initial {
     TResult Function()? loading,
     TResult Function(TaskDetailsResponse taskDetails)? success,
     TResult Function(String error)? error,
+    TResult Function()? deleteLoading,
+    TResult Function()? deleteSuccess,
+    TResult Function(String message)? deleteError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -171,6 +198,9 @@ class _$InitialImpl implements _Initial {
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
     required TResult Function(Error value) error,
+    required TResult Function(DeleteLoading value) deleteLoading,
+    required TResult Function(DeleteSuccess value) deleteSuccess,
+    required TResult Function(DeleteError value) deleteError,
   }) {
     return initial(this);
   }
@@ -182,6 +212,9 @@ class _$InitialImpl implements _Initial {
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
     TResult? Function(Error value)? error,
+    TResult? Function(DeleteLoading value)? deleteLoading,
+    TResult? Function(DeleteSuccess value)? deleteSuccess,
+    TResult? Function(DeleteError value)? deleteError,
   }) {
     return initial?.call(this);
   }
@@ -193,6 +226,9 @@ class _$InitialImpl implements _Initial {
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
     TResult Function(Error value)? error,
+    TResult Function(DeleteLoading value)? deleteLoading,
+    TResult Function(DeleteSuccess value)? deleteSuccess,
+    TResult Function(DeleteError value)? deleteError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -251,6 +287,9 @@ class _$LoadingImpl implements Loading {
     required TResult Function() loading,
     required TResult Function(TaskDetailsResponse taskDetails) success,
     required TResult Function(String error) error,
+    required TResult Function() deleteLoading,
+    required TResult Function() deleteSuccess,
+    required TResult Function(String message) deleteError,
   }) {
     return loading();
   }
@@ -262,6 +301,9 @@ class _$LoadingImpl implements Loading {
     TResult? Function()? loading,
     TResult? Function(TaskDetailsResponse taskDetails)? success,
     TResult? Function(String error)? error,
+    TResult? Function()? deleteLoading,
+    TResult? Function()? deleteSuccess,
+    TResult? Function(String message)? deleteError,
   }) {
     return loading?.call();
   }
@@ -273,6 +315,9 @@ class _$LoadingImpl implements Loading {
     TResult Function()? loading,
     TResult Function(TaskDetailsResponse taskDetails)? success,
     TResult Function(String error)? error,
+    TResult Function()? deleteLoading,
+    TResult Function()? deleteSuccess,
+    TResult Function(String message)? deleteError,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -288,6 +333,9 @@ class _$LoadingImpl implements Loading {
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
     required TResult Function(Error value) error,
+    required TResult Function(DeleteLoading value) deleteLoading,
+    required TResult Function(DeleteSuccess value) deleteSuccess,
+    required TResult Function(DeleteError value) deleteError,
   }) {
     return loading(this);
   }
@@ -299,6 +347,9 @@ class _$LoadingImpl implements Loading {
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
     TResult? Function(Error value)? error,
+    TResult? Function(DeleteLoading value)? deleteLoading,
+    TResult? Function(DeleteSuccess value)? deleteSuccess,
+    TResult? Function(DeleteError value)? deleteError,
   }) {
     return loading?.call(this);
   }
@@ -310,6 +361,9 @@ class _$LoadingImpl implements Loading {
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
     TResult Function(Error value)? error,
+    TResult Function(DeleteLoading value)? deleteLoading,
+    TResult Function(DeleteSuccess value)? deleteSuccess,
+    TResult Function(DeleteError value)? deleteError,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -396,6 +450,9 @@ class _$SuccessImpl implements Success {
     required TResult Function() loading,
     required TResult Function(TaskDetailsResponse taskDetails) success,
     required TResult Function(String error) error,
+    required TResult Function() deleteLoading,
+    required TResult Function() deleteSuccess,
+    required TResult Function(String message) deleteError,
   }) {
     return success(taskDetails);
   }
@@ -407,6 +464,9 @@ class _$SuccessImpl implements Success {
     TResult? Function()? loading,
     TResult? Function(TaskDetailsResponse taskDetails)? success,
     TResult? Function(String error)? error,
+    TResult? Function()? deleteLoading,
+    TResult? Function()? deleteSuccess,
+    TResult? Function(String message)? deleteError,
   }) {
     return success?.call(taskDetails);
   }
@@ -418,6 +478,9 @@ class _$SuccessImpl implements Success {
     TResult Function()? loading,
     TResult Function(TaskDetailsResponse taskDetails)? success,
     TResult Function(String error)? error,
+    TResult Function()? deleteLoading,
+    TResult Function()? deleteSuccess,
+    TResult Function(String message)? deleteError,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -433,6 +496,9 @@ class _$SuccessImpl implements Success {
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
     required TResult Function(Error value) error,
+    required TResult Function(DeleteLoading value) deleteLoading,
+    required TResult Function(DeleteSuccess value) deleteSuccess,
+    required TResult Function(DeleteError value) deleteError,
   }) {
     return success(this);
   }
@@ -444,6 +510,9 @@ class _$SuccessImpl implements Success {
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
     TResult? Function(Error value)? error,
+    TResult? Function(DeleteLoading value)? deleteLoading,
+    TResult? Function(DeleteSuccess value)? deleteSuccess,
+    TResult? Function(DeleteError value)? deleteError,
   }) {
     return success?.call(this);
   }
@@ -455,6 +524,9 @@ class _$SuccessImpl implements Success {
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
     TResult Function(Error value)? error,
+    TResult Function(DeleteLoading value)? deleteLoading,
+    TResult Function(DeleteSuccess value)? deleteSuccess,
+    TResult Function(DeleteError value)? deleteError,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -548,6 +620,9 @@ class _$ErrorImpl implements Error {
     required TResult Function() loading,
     required TResult Function(TaskDetailsResponse taskDetails) success,
     required TResult Function(String error) error,
+    required TResult Function() deleteLoading,
+    required TResult Function() deleteSuccess,
+    required TResult Function(String message) deleteError,
   }) {
     return error(this.error);
   }
@@ -559,6 +634,9 @@ class _$ErrorImpl implements Error {
     TResult? Function()? loading,
     TResult? Function(TaskDetailsResponse taskDetails)? success,
     TResult? Function(String error)? error,
+    TResult? Function()? deleteLoading,
+    TResult? Function()? deleteSuccess,
+    TResult? Function(String message)? deleteError,
   }) {
     return error?.call(this.error);
   }
@@ -570,6 +648,9 @@ class _$ErrorImpl implements Error {
     TResult Function()? loading,
     TResult Function(TaskDetailsResponse taskDetails)? success,
     TResult Function(String error)? error,
+    TResult Function()? deleteLoading,
+    TResult Function()? deleteSuccess,
+    TResult Function(String message)? deleteError,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -585,6 +666,9 @@ class _$ErrorImpl implements Error {
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
     required TResult Function(Error value) error,
+    required TResult Function(DeleteLoading value) deleteLoading,
+    required TResult Function(DeleteSuccess value) deleteSuccess,
+    required TResult Function(DeleteError value) deleteError,
   }) {
     return error(this);
   }
@@ -596,6 +680,9 @@ class _$ErrorImpl implements Error {
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
     TResult? Function(Error value)? error,
+    TResult? Function(DeleteLoading value)? deleteLoading,
+    TResult? Function(DeleteSuccess value)? deleteSuccess,
+    TResult? Function(DeleteError value)? deleteError,
   }) {
     return error?.call(this);
   }
@@ -607,6 +694,9 @@ class _$ErrorImpl implements Error {
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
     TResult Function(Error value)? error,
+    TResult Function(DeleteLoading value)? deleteLoading,
+    TResult Function(DeleteSuccess value)? deleteSuccess,
+    TResult Function(DeleteError value)? deleteError,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -625,5 +715,446 @@ abstract class Error implements TaskDetailsState {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DeleteLoadingImplCopyWith<$Res> {
+  factory _$$DeleteLoadingImplCopyWith(
+          _$DeleteLoadingImpl value, $Res Function(_$DeleteLoadingImpl) then) =
+      __$$DeleteLoadingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$DeleteLoadingImplCopyWithImpl<$Res>
+    extends _$TaskDetailsStateCopyWithImpl<$Res, _$DeleteLoadingImpl>
+    implements _$$DeleteLoadingImplCopyWith<$Res> {
+  __$$DeleteLoadingImplCopyWithImpl(
+      _$DeleteLoadingImpl _value, $Res Function(_$DeleteLoadingImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of TaskDetailsState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$DeleteLoadingImpl implements DeleteLoading {
+  const _$DeleteLoadingImpl();
+
+  @override
+  String toString() {
+    return 'TaskDetailsState.deleteLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$DeleteLoadingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(TaskDetailsResponse taskDetails) success,
+    required TResult Function(String error) error,
+    required TResult Function() deleteLoading,
+    required TResult Function() deleteSuccess,
+    required TResult Function(String message) deleteError,
+  }) {
+    return deleteLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(TaskDetailsResponse taskDetails)? success,
+    TResult? Function(String error)? error,
+    TResult? Function()? deleteLoading,
+    TResult? Function()? deleteSuccess,
+    TResult? Function(String message)? deleteError,
+  }) {
+    return deleteLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(TaskDetailsResponse taskDetails)? success,
+    TResult Function(String error)? error,
+    TResult Function()? deleteLoading,
+    TResult Function()? deleteSuccess,
+    TResult Function(String message)? deleteError,
+    required TResult orElse(),
+  }) {
+    if (deleteLoading != null) {
+      return deleteLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Success value) success,
+    required TResult Function(Error value) error,
+    required TResult Function(DeleteLoading value) deleteLoading,
+    required TResult Function(DeleteSuccess value) deleteSuccess,
+    required TResult Function(DeleteError value) deleteError,
+  }) {
+    return deleteLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Success value)? success,
+    TResult? Function(Error value)? error,
+    TResult? Function(DeleteLoading value)? deleteLoading,
+    TResult? Function(DeleteSuccess value)? deleteSuccess,
+    TResult? Function(DeleteError value)? deleteError,
+  }) {
+    return deleteLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Success value)? success,
+    TResult Function(Error value)? error,
+    TResult Function(DeleteLoading value)? deleteLoading,
+    TResult Function(DeleteSuccess value)? deleteSuccess,
+    TResult Function(DeleteError value)? deleteError,
+    required TResult orElse(),
+  }) {
+    if (deleteLoading != null) {
+      return deleteLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DeleteLoading implements TaskDetailsState {
+  const factory DeleteLoading() = _$DeleteLoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$DeleteSuccessImplCopyWith<$Res> {
+  factory _$$DeleteSuccessImplCopyWith(
+          _$DeleteSuccessImpl value, $Res Function(_$DeleteSuccessImpl) then) =
+      __$$DeleteSuccessImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$DeleteSuccessImplCopyWithImpl<$Res>
+    extends _$TaskDetailsStateCopyWithImpl<$Res, _$DeleteSuccessImpl>
+    implements _$$DeleteSuccessImplCopyWith<$Res> {
+  __$$DeleteSuccessImplCopyWithImpl(
+      _$DeleteSuccessImpl _value, $Res Function(_$DeleteSuccessImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of TaskDetailsState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$DeleteSuccessImpl implements DeleteSuccess {
+  const _$DeleteSuccessImpl();
+
+  @override
+  String toString() {
+    return 'TaskDetailsState.deleteSuccess()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$DeleteSuccessImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(TaskDetailsResponse taskDetails) success,
+    required TResult Function(String error) error,
+    required TResult Function() deleteLoading,
+    required TResult Function() deleteSuccess,
+    required TResult Function(String message) deleteError,
+  }) {
+    return deleteSuccess();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(TaskDetailsResponse taskDetails)? success,
+    TResult? Function(String error)? error,
+    TResult? Function()? deleteLoading,
+    TResult? Function()? deleteSuccess,
+    TResult? Function(String message)? deleteError,
+  }) {
+    return deleteSuccess?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(TaskDetailsResponse taskDetails)? success,
+    TResult Function(String error)? error,
+    TResult Function()? deleteLoading,
+    TResult Function()? deleteSuccess,
+    TResult Function(String message)? deleteError,
+    required TResult orElse(),
+  }) {
+    if (deleteSuccess != null) {
+      return deleteSuccess();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Success value) success,
+    required TResult Function(Error value) error,
+    required TResult Function(DeleteLoading value) deleteLoading,
+    required TResult Function(DeleteSuccess value) deleteSuccess,
+    required TResult Function(DeleteError value) deleteError,
+  }) {
+    return deleteSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Success value)? success,
+    TResult? Function(Error value)? error,
+    TResult? Function(DeleteLoading value)? deleteLoading,
+    TResult? Function(DeleteSuccess value)? deleteSuccess,
+    TResult? Function(DeleteError value)? deleteError,
+  }) {
+    return deleteSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Success value)? success,
+    TResult Function(Error value)? error,
+    TResult Function(DeleteLoading value)? deleteLoading,
+    TResult Function(DeleteSuccess value)? deleteSuccess,
+    TResult Function(DeleteError value)? deleteError,
+    required TResult orElse(),
+  }) {
+    if (deleteSuccess != null) {
+      return deleteSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DeleteSuccess implements TaskDetailsState {
+  const factory DeleteSuccess() = _$DeleteSuccessImpl;
+}
+
+/// @nodoc
+abstract class _$$DeleteErrorImplCopyWith<$Res> {
+  factory _$$DeleteErrorImplCopyWith(
+          _$DeleteErrorImpl value, $Res Function(_$DeleteErrorImpl) then) =
+      __$$DeleteErrorImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$DeleteErrorImplCopyWithImpl<$Res>
+    extends _$TaskDetailsStateCopyWithImpl<$Res, _$DeleteErrorImpl>
+    implements _$$DeleteErrorImplCopyWith<$Res> {
+  __$$DeleteErrorImplCopyWithImpl(
+      _$DeleteErrorImpl _value, $Res Function(_$DeleteErrorImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of TaskDetailsState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$DeleteErrorImpl(
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DeleteErrorImpl implements DeleteError {
+  const _$DeleteErrorImpl({required this.message});
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'TaskDetailsState.deleteError(message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeleteErrorImpl &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  /// Create a copy of TaskDetailsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeleteErrorImplCopyWith<_$DeleteErrorImpl> get copyWith =>
+      __$$DeleteErrorImplCopyWithImpl<_$DeleteErrorImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(TaskDetailsResponse taskDetails) success,
+    required TResult Function(String error) error,
+    required TResult Function() deleteLoading,
+    required TResult Function() deleteSuccess,
+    required TResult Function(String message) deleteError,
+  }) {
+    return deleteError(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(TaskDetailsResponse taskDetails)? success,
+    TResult? Function(String error)? error,
+    TResult? Function()? deleteLoading,
+    TResult? Function()? deleteSuccess,
+    TResult? Function(String message)? deleteError,
+  }) {
+    return deleteError?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(TaskDetailsResponse taskDetails)? success,
+    TResult Function(String error)? error,
+    TResult Function()? deleteLoading,
+    TResult Function()? deleteSuccess,
+    TResult Function(String message)? deleteError,
+    required TResult orElse(),
+  }) {
+    if (deleteError != null) {
+      return deleteError(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Success value) success,
+    required TResult Function(Error value) error,
+    required TResult Function(DeleteLoading value) deleteLoading,
+    required TResult Function(DeleteSuccess value) deleteSuccess,
+    required TResult Function(DeleteError value) deleteError,
+  }) {
+    return deleteError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Success value)? success,
+    TResult? Function(Error value)? error,
+    TResult? Function(DeleteLoading value)? deleteLoading,
+    TResult? Function(DeleteSuccess value)? deleteSuccess,
+    TResult? Function(DeleteError value)? deleteError,
+  }) {
+    return deleteError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Success value)? success,
+    TResult Function(Error value)? error,
+    TResult Function(DeleteLoading value)? deleteLoading,
+    TResult Function(DeleteSuccess value)? deleteSuccess,
+    TResult Function(DeleteError value)? deleteError,
+    required TResult orElse(),
+  }) {
+    if (deleteError != null) {
+      return deleteError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DeleteError implements TaskDetailsState {
+  const factory DeleteError({required final String message}) =
+      _$DeleteErrorImpl;
+
+  String get message;
+
+  /// Create a copy of TaskDetailsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$DeleteErrorImplCopyWith<_$DeleteErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

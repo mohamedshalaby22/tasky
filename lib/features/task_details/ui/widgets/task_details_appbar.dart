@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tasky/core/helpers/extensions.dart';
+import 'package:tasky/features/task_details/logic/cubit/task_details_cubit.dart';
 import 'package:tasky/features/task_details/ui/widgets/custom_popup_menu.dart';
 import '../../../../core/helpers/spacing.dart';
+import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
+import 'task_details_cards.dart';
 
 class TaskDetailsAppbar extends StatelessWidget implements PreferredSizeWidget {
   const TaskDetailsAppbar({super.key});
@@ -34,7 +38,13 @@ class TaskDetailsAppbar extends StatelessWidget implements PreferredSizeWidget {
             ),
           ),
           const Spacer(),
-          const CustomPopupMenu(),
+          CustomPopupMenu(
+            onEdit: () {},
+            onDelete: () {
+              context.pop();
+              _deleteTaskSheet(context);
+            },
+          ),
         ],
       ),
     );
@@ -44,4 +54,57 @@ class TaskDetailsAppbar extends StatelessWidget implements PreferredSizeWidget {
   Size get preferredSize => const Size.fromHeight(60);
 }
 
-
+Future<dynamic> _deleteTaskSheet(BuildContext context) {
+  final taskDetailsCubit = context.read<TaskDetailsCubit>();
+  return showModalBottomSheet(
+    elevation: 0.0,
+    backgroundColor: Colors.white,
+   shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
+    context: context,
+    builder: (context) {
+      return Container(
+        margin: const EdgeInsets.all(16),
+        width: double.infinity,
+        height: 150,
+        child: Column(
+          children: [
+            GestureDetector(
+              onTap: () {
+                context.pop();
+              },
+              child: const Align(
+                alignment: Alignment.topRight,
+                child: CircleAvatar(
+                  radius: 18,
+                  backgroundColor: ColorsManager.lighterPurple,
+                  child: Icon(
+                    Icons.close,
+                    color: ColorsManager.mainPurple,
+                  ),
+                ),
+              ),
+            ),
+            verticalSpacing(15),
+            GestureDetector(
+              onTap: () {
+                taskDetailsCubit.deleteTask();
+              },
+              child: buildInfoCard(
+                  child: Row(
+                children: [
+                  const Icon(Icons.delete, color: ColorsManager.mainPurple),
+                  horizontalSpacing(10),
+                  Text(
+                    'Delete Task',
+                    style: TextStyles.font16MainPurpleBold,
+                  ),
+                ],
+              )),
+            ),
+          ],
+        ),
+      );
+    },
+  );
+}

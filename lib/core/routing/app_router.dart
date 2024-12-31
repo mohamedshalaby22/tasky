@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tasky/core/di/dependency_injection.dart';
 import 'package:tasky/core/routing/routes.dart';
 import 'package:tasky/features/home/logic/cubit/tasks_cubit.dart';
+import 'package:tasky/features/home/ui/screens/qr_view_screen.dart';
 import 'package:tasky/features/login/logic/cubit/login_cubit.dart';
 import 'package:tasky/features/home/ui/screens/home_screen.dart';
 import 'package:tasky/features/login/ui/screens/login_screen.dart';
@@ -42,12 +43,16 @@ class AppRouter {
             child: const HomeScreen(),
           ),
         );
+      case Routes.qrViewScreen:
+        return MaterialPageRoute(
+          builder: (_) => const QrViewScreen(),
+        );
       case Routes.taskDetailsScreen:
         final String taskId = settings.arguments as String;
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
             create: (BuildContext context) =>
-                TaskDetailsCubit(getIt())..getTaskDetails(taskId: taskId),
+                TaskDetailsCubit(getIt(), taskId)..getTaskDetails(),
             child: const TaskDetailsScreen(),
           ),
         );

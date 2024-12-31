@@ -53,7 +53,6 @@ class _SignUpFormsState extends State<SignUpForms> {
           ChooseExperienceLevel(
             onSelect: (String level) {
               context.read<SignUpCubit>().level = level;
-              
             },
           ),
           verticalSpacing(15),
@@ -70,9 +69,12 @@ class _SignUpFormsState extends State<SignUpForms> {
             controller: context.read<SignUpCubit>().passwordController,
             hintText: 'Password...',
             validator: (value) {
-              if (value != null && value.length < 6 && value.isNotEmpty) {
+              if (value == null || value.isEmpty) {
+                return 'Please enter a password';
+              } else if (value.length < 6) {
                 return 'Password must be at least 6 characters';
               }
+              return null;
             },
             isObscureText: isObsecureText,
             suffixIcon: GestureDetector(

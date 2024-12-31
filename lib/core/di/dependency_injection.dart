@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:tasky/features/home/data/apis/tasks_api_service.dart';
 import 'package:tasky/features/home/data/repo/tasks_repo.dart';
+import 'package:tasky/features/home/logic/cubit/tasks_cubit.dart';
 import 'package:tasky/features/login/data/apis/login_api_service.dart';
 import 'package:tasky/features/login/data/repos/login_repo.dart';
 import 'package:tasky/features/new_task/data/apis/new_task_api_service.dart';
@@ -30,6 +31,7 @@ Future<void> setupGetIt() async {
   // home todos
   getIt.registerLazySingleton<TasksApiService>(() => TasksApiService(dio));
   getIt.registerLazySingleton<TasksRepo>(() => TasksRepo(getIt()));
+  getIt.registerLazySingleton<TasksCubit>(() => TasksCubit(getIt())); 
 
   // task details
   getIt.registerLazySingleton<TaskDetailsApiService>(() => TaskDetailsApiService(dio));

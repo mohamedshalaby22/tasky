@@ -29,9 +29,13 @@ class _PhoneAndPaswordFormsState extends State<PhoneAndPaswordForms> {
             controller: context.read<LoginCubit>().passwordController,
             hintText: 'Password...',
             validator: (value) {
-              if (value != null && value.length < 6 && value.isNotEmpty) {
+              if (value == null || value.isEmpty) {
+                return 'Please enter a password';
+              } else if (value.length < 6) {
                 return 'Password must be at least 6 characters';
               }
+              return null;
+            
             },
             isObscureText: isObsecureText,
             suffixIcon: GestureDetector(

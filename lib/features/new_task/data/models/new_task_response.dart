@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'new_task_response.g.dart';
+
 @JsonSerializable()
 class AddNewTaskResponse {
   String image;
@@ -8,6 +9,7 @@ class AddNewTaskResponse {
   String priority;
   String status;
   String user;
+  @JsonKey(name: '_id')
   String id;
   @JsonKey(name: 'createdAt')
   String dueDate;
