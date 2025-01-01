@@ -3,9 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tasky/core/helpers/spacing.dart';
 import 'package:tasky/core/theming/styles.dart';
 import 'package:tasky/core/widgets/app_text_form_field.dart';
-import 'package:tasky/features/new_task/ui/widgets/choose_priority_button.dart';
-import 'package:tasky/features/new_task/ui/widgets/date_picker_button.dart';
-import '../../logic/cubit/new_task_cubit.dart';
+import 'package:tasky/features/new_task/ui/widgets/add_task/choose_priority_button.dart';
+import 'package:tasky/features/new_task/ui/widgets/add_task/date_picker_button.dart';
+import '../../../logic/add_cubit/new_task_cubit.dart';
 
 class NewTaskForms extends StatefulWidget {
   const NewTaskForms({super.key});

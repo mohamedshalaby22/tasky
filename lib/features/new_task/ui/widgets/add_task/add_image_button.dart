@@ -7,7 +7,7 @@ import 'package:tasky/core/helpers/extensions.dart';
 import 'package:tasky/core/helpers/spacing.dart';
 import 'package:tasky/core/theming/colors.dart';
 import 'package:tasky/core/theming/styles.dart';
-import 'package:tasky/features/new_task/logic/cubit/new_task_cubit.dart';
+import 'package:tasky/features/new_task/logic/add_cubit/new_task_cubit.dart';
 import 'package:tasky/features/task_details/ui/widgets/task_details_cards.dart';
 
 class AddImageButton extends StatefulWidget {

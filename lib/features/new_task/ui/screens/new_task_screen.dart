@@ -4,10 +4,10 @@ import 'package:tasky/core/helpers/spacing.dart';
 import 'package:tasky/core/widgets/app_snack_bar.dart';
 import 'package:tasky/core/widgets/app_text_button.dart';
 import 'package:tasky/core/widgets/custom_appbar.dart';
-import 'package:tasky/features/new_task/logic/cubit/new_task_cubit.dart';
-import 'package:tasky/features/new_task/ui/widgets/add_image_button.dart';
-import 'package:tasky/features/new_task/ui/widgets/new_task_forms.dart';
-import '../widgets/new_task_bloc_listener.dart';
+import 'package:tasky/features/new_task/logic/add_cubit/new_task_cubit.dart';
+import 'package:tasky/features/new_task/ui/widgets/add_task/add_image_button.dart';
+import 'package:tasky/features/new_task/ui/widgets/add_task/new_task_forms.dart';
+import '../widgets/add_task/new_task_bloc_listener.dart';
 
 class NewTaskScreen extends StatelessWidget {
   const NewTaskScreen({super.key});

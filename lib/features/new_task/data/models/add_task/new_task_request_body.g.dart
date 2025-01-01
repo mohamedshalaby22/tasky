@@ -6,6 +6,15 @@ part of 'new_task_request_body.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+AddNewTaskRequestBody _$AddNewTaskRequestBodyFromJson(
+        Map<String, dynamic> json) =>
+    AddNewTaskRequestBody(
+      image: json['image'] as String,
+      title: json['title'] as String,
+      desc: json['desc'] as String,
+      priority: json['priority'] as String,
+      dueDate: json['dueDate'] as String,
+    );
 
 Map<String, dynamic> _$AddNewTaskRequestBodyToJson(
         AddNewTaskRequestBody instance) =>

@@ -37,6 +37,8 @@ Future<void> setupGetIt() async {
   getIt.registerLazySingleton<TaskDetailsApiService>(() => TaskDetailsApiService(dio));
   getIt.registerLazySingleton<TaskDetailsRepo>(() => TaskDetailsRepo(getIt()));
 
+
+
   // Add new task
   getIt.registerLazySingleton<NewTaskApiService>(() => NewTaskApiService(dio));
   getIt.registerLazySingleton<NewTaskRepo>(() => NewTaskRepo(getIt()));

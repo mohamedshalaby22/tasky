@@ -17,3 +17,13 @@ TasksListResponse _$TasksListResponseFromJson(Map<String, dynamic> json) =>
       dueDate: json['createdAt'] as String? ?? '',
     );
 
+Map<String, dynamic> _$TasksListResponseToJson(TasksListResponse instance) =>
+    <String, dynamic>{
+      '_id': instance.id,
+      'image': instance.image,
+      'title': instance.title,
+      'desc': instance.desc,
+      'priority': instance.priority,
+      'status': instance.status,
+      'createdAt': instance.dueDate,
+    };

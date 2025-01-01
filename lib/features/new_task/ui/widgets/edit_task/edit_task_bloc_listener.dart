@@ -5,14 +5,14 @@ import 'package:tasky/core/helpers/extensions.dart';
 import 'package:tasky/core/routing/routes.dart';
 import 'package:tasky/core/theming/colors.dart';
 import 'package:tasky/core/widgets/app_snack_bar.dart';
-import 'package:tasky/features/new_task/logic/cubit/new_task_cubit.dart';
+import '../../../logic/edit_cubit/edit_task_cubit.dart';
 
-class NewTaskBlocListener extends StatelessWidget {
-  const NewTaskBlocListener({super.key});
+class EditTaskBlocListener extends StatelessWidget {
+  const EditTaskBlocListener({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<NewTaskCubit, NewTaskState>(
+    return BlocListener<EditTaskCubit, EditTaskState>(
       listenWhen: (previous, current) =>
           current is Loading || current is Success || current is Error,
       listener: (context, state) {
@@ -28,13 +28,14 @@ class NewTaskBlocListener extends StatelessWidget {
             );
           },
           success: (response) {
-            context.pop();
-            context.pushNamedAndRemoveUntil(Routes.homeScreen,
-                predicate: (Route<dynamic> route) => false);
-            AppSnackBar.showSnackBarWidget(
-              context: context,
-              message: 'New task added successfully!'.capitalizeFirst(),
-            );
+            print(response);
+            // context.pop();
+            // context.pushNamedAndRemoveUntil(Routes.homeScreen,
+            //     predicate: (Route<dynamic> route) => false);
+            // AppSnackBar.showSnackBarWidget(
+            //   context: context,
+            //   message: 'Edit task added successfully!'.capitalizeFirst(),
+            // );
           },
           error: (error) {
             AppSnackBar.showSnackBarWidget(

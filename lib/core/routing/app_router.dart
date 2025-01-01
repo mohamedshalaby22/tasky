@@ -7,13 +7,15 @@ import 'package:tasky/features/home/ui/screens/qr_view_screen.dart';
 import 'package:tasky/features/login/logic/cubit/login_cubit.dart';
 import 'package:tasky/features/home/ui/screens/home_screen.dart';
 import 'package:tasky/features/login/ui/screens/login_screen.dart';
-import 'package:tasky/features/new_task/logic/cubit/new_task_cubit.dart';
+import 'package:tasky/features/new_task/logic/add_cubit/new_task_cubit.dart';
+import 'package:tasky/features/new_task/logic/edit_cubit/edit_task_cubit.dart';
 import 'package:tasky/features/new_task/ui/screens/new_task_screen.dart';
 import 'package:tasky/features/profile/logic/cubit/profile_cubit.dart';
 import 'package:tasky/features/profile/ui/screen/profile_screen.dart';
 import 'package:tasky/features/signup/ui/screens/sign_up_screen.dart';
 import 'package:tasky/features/task_details/logic/cubit/task_details_cubit.dart';
 import 'package:tasky/features/task_details/ui/screens/task_details_screen.dart';
+import '../../features/new_task/ui/screens/edit_task_screen.dart';
 import '../../features/on_boarding/on_boarding_screen.dart';
 import '../../features/signup/logic/cubit/sign_up_cubit.dart';
 
@@ -61,6 +63,14 @@ class AppRouter {
           builder: (_) => BlocProvider(
             create: (BuildContext context) => NewTaskCubit(getIt()),
             child: const NewTaskScreen(),
+          ),
+        );
+      case Routes.editTaskScreen:
+        final String taskId = settings.arguments as String;
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (BuildContext context) => EditTaskCubit(getIt(), taskId),
+            child: const EditTaskScreen(),
           ),
         );
       case Routes.profileScreen:

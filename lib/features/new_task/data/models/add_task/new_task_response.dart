@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'new_task_response.g.dart';
-
 @JsonSerializable()
 class AddNewTaskResponse {
   String image;

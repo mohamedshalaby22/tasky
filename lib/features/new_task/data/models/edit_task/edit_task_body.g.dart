@@ -1,20 +1,26 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'new_task_response.dart';
+part of 'edit_task_body.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-AddNewTaskResponse _$AddNewTaskResponseFromJson(Map<String, dynamic> json) =>
-    AddNewTaskResponse(
+EditTaskRequestBody _$EditTaskRequestBodyFromJson(Map<String, dynamic> json) =>
+    EditTaskRequestBody(
       image: json['image'] as String,
       title: json['title'] as String,
       desc: json['desc'] as String,
       priority: json['priority'] as String,
       status: json['status'] as String,
-      user: json['user'] as String,
-      id: json['_id'] as String,
-      dueDate: json['createdAt'] as String,
     );
 
+Map<String, dynamic> _$EditTaskRequestBodyToJson(
+        EditTaskRequestBody instance) =>
+    <String, dynamic>{
+      'image': instance.image,
+      'title': instance.title,
+      'desc': instance.desc,
+      'priority': instance.priority,
+      'status': instance.status,
+    };

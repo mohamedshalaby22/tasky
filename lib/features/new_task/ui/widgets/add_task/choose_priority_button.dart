@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tasky/core/helpers/spacing.dart';
 import 'package:tasky/core/theming/colors.dart';
 import 'package:tasky/core/theming/styles.dart';
-import '../../../../core/constants/app_images.dart';
+import '../../../../../core/constants/app_images.dart';
 
 class ChoosePriorityButton extends StatefulWidget {
   const ChoosePriorityButton({super.key, required this.onSelect});

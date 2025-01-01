@@ -4,6 +4,7 @@ import 'package:tasky/core/helpers/extensions.dart';
 import 'package:tasky/features/task_details/logic/cubit/task_details_cubit.dart';
 import 'package:tasky/features/task_details/ui/widgets/custom_popup_menu.dart';
 import '../../../../core/helpers/spacing.dart';
+import '../../../../core/routing/routes.dart';
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
 import 'task_details_cards.dart';
@@ -39,7 +40,11 @@ class TaskDetailsAppbar extends StatelessWidget implements PreferredSizeWidget {
           ),
           const Spacer(),
           CustomPopupMenu(
-            onEdit: () {},
+            onEdit: () {
+              context.pop();
+              context.pushReplacementNamed(Routes.editTaskScreen,
+                  arguments: context.read<TaskDetailsCubit>().taskId);
+            },
             onDelete: () {
               context.pop();
               _deleteTaskSheet(context);
@@ -59,7 +64,7 @@ Future<dynamic> _deleteTaskSheet(BuildContext context) {
   return showModalBottomSheet(
     elevation: 0.0,
     backgroundColor: Colors.white,
-   shape: const RoundedRectangleBorder(
+    shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
     context: context,
     builder: (context) {

@@ -18,6 +18,7 @@ class CustomPopupMenu extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             GestureDetector(
+              behavior: HitTestBehavior.opaque,
               onTap: () => onEdit(),
               child: Text(
                 'Edit',
@@ -26,6 +27,7 @@ class CustomPopupMenu extends StatelessWidget {
             ),
             const Divider(thickness: 0.3),
             GestureDetector(
+              behavior: HitTestBehavior.opaque,
               onTap: () => onDelete(),
               child: Text(
                 'Delete',

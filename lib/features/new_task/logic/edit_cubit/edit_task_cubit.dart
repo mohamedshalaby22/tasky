@@ -3,26 +3,28 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:tasky/features/new_task/data/repos/new_task_repo.dart';
-import '../../data/models/new_task_request_body.dart';
-part 'new_task_state.dart';
-part 'new_task_cubit.freezed.dart';
+import '../../data/models/edit_task/edit_task_body.dart';
+import '../../data/repos/new_task_repo.dart';
+part 'edit_task_state.dart';
+part 'edit_task_cubit.freezed.dart';
 
-class NewTaskCubit extends Cubit<NewTaskState> {
+class EditTaskCubit extends Cubit<EditTaskState> {
   final NewTaskRepo _newTaskRepo;
+  final String taskId;
+  EditTaskCubit(this._newTaskRepo, this.taskId)
+      : super(const EditTaskState.initial());
 
-  NewTaskCubit(this._newTaskRepo) : super(const NewTaskState.initial());
-
+  String imageUrl = '';
   void uploadImageAndAddData() async {
-    emit(const NewTaskState.loading());
+    emit(const EditTaskState.loading());
     final imageUploadResponse = await _newTaskRepo.uploadImage(selectedImage!);
     imageUploadResponse.when(
       success: (imageUploadResponse) async {
-        String imageUrl = imageUploadResponse.image;
-        await _addNewTask(imageUrl);
+        imageUrl = imageUploadResponse.image;
+        await editTask();
       },
       failure: (message) {
-        emit(NewTaskState.error(error: message.toString()));
+        emit(EditTaskState.error(error: message.toString()));
       },
     );
   }
@@ -31,28 +33,27 @@ class NewTaskCubit extends Cubit<NewTaskState> {
   TextEditingController descriptionController = TextEditingController();
   final formKey = GlobalKey<FormState>();
   String selectedPriority = 'medium';
-  String selectedDate = '';
-  Future<void> _addNewTask(String imageUrl) async {
-    final requestBody = AddNewTaskRequestBody(
+  String selectedStatus = 'waiting';
+  Future<void> editTask() async {
+    final requestBody = EditTaskRequestBody(
       title: titleController.text,
       desc: descriptionController.text,
       image: imageUrl,
       priority: selectedPriority,
-      dueDate: selectedDate,
+      status: selectedStatus,
     );
-
     try {
-      final addTaskResponse = await _newTaskRepo.addNewTask(requestBody);
+      final addTaskResponse = await _newTaskRepo.editTask(requestBody, taskId);
       addTaskResponse.when(
         success: (response) {
-          emit(NewTaskState.success(response));
+          emit(EditTaskState.success(response));
         },
         failure: (error) {
-          emit(NewTaskState.error(error: error.toString()));
+          emit(EditTaskState.error(error: error.toString()));
         },
       );
     } catch (e) {
-      emit(NewTaskState.error(error: 'Failed to add task: $e'));
+      emit(EditTaskState.error(error: 'Failed to Edit task: $e'));
     }
   }
 
@@ -68,7 +69,7 @@ class NewTaskCubit extends Cubit<NewTaskState> {
       );
       if (xFile != null) {
         selectedImage = File(xFile.path);
-        emit(NewTaskState.imageSelected(image: selectedImage!));
+        emit(EditTaskState.imageSelected(image: selectedImage!));
       }
     } catch (e) {
       debugPrint('Error picking image: $e');
