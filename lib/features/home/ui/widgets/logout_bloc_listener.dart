@@ -35,6 +35,7 @@ class LogoutBlocListener extends StatelessWidget {
             AppSnackBar.showSnackBarWidget(
               context: context,
               message: 'Logout Succesfully!',
+              backColor: Colors.green[400]!,  
             );
           },
           logoutError: (error) {

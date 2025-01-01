@@ -15,13 +15,11 @@ class NewTaskCubit extends Cubit<NewTaskState> {
 
   void uploadImageAndAddData() async {
     emit(const NewTaskState.loading());
-
     final imageUploadResponse = await _newTaskRepo.uploadImage(selectedImage!);
     imageUploadResponse.when(
       success: (imageUploadResponse) async {
-        String imageUrl = imageUploadResponse.image.trim();
+        String imageUrl = imageUploadResponse.image;
         await _addNewTask(imageUrl);
-        emit(NewTaskState.success(imageUploadResponse));
       },
       failure: (message) {
         emit(NewTaskState.error(error: message.toString()));

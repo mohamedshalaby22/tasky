@@ -1,3 +1,4 @@
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tasky/core/theming/colors.dart';
@@ -31,6 +32,7 @@ class TasksBlocBuilder extends StatelessWidget {
         }, empty: () {
           return setupEmpty(context);
         }, success: (tasksResonse) {
+          
           return setupSuccess(tasksResonse);
         }, error: (errorHandler) {
           return setupError();
@@ -52,7 +54,7 @@ class TasksBlocBuilder extends StatelessWidget {
 
 Widget setupEmpty(BuildContext context) {
   return Padding(
-    padding:  EdgeInsets.only(top: MediaQuery.sizeOf(context).height / 3.5),
+    padding: EdgeInsets.only(top: MediaQuery.sizeOf(context).height / 3.5),
     child: Center(
       child: Text(
         'No Tasks Available',
