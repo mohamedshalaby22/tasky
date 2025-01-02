@@ -17,3 +17,14 @@ TaskDetailsResponse _$TaskDetailsResponseFromJson(Map<String, dynamic> json) =>
       userId: json['user'] as String? ?? '',
     );
 
+Map<String, dynamic> _$TaskDetailsResponseToJson(
+        TaskDetailsResponse instance) =>
+    <String, dynamic>{
+      '_id': instance.id,
+      'image': instance.image,
+      'title': instance.title,
+      'desc': instance.desc,
+      'priority': instance.priority,
+      'status': instance.status,
+      'user': instance.userId,
+    };

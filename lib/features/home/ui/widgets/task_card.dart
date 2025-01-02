@@ -31,7 +31,7 @@ class TaskCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Image.asset(
-                 Assets.imagesTaskImage,
+                  Assets.imagesTaskImage,
                   width: 70,
                   fit: BoxFit.contain,
                 ),
@@ -118,7 +118,7 @@ class TaskCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
       decoration: BoxDecoration(
-        color: TaskStatusColor.getTaskStatusBackgroundColor(
+        color: TaskStatusHelper.getTaskStatusBackgroundColor(
             TaskStatus.values.byName(status)),
         borderRadius: BorderRadius.circular(5),
       ),
@@ -128,7 +128,7 @@ class TaskCard extends StatelessWidget {
           fontFamily: AppConstants.appFontFamily,
           fontSize: 12,
           fontWeight: FontWeight.w500,
-          color: TaskStatusColor.getTaskStatusColor(
+          color: TaskStatusHelper.getTaskStatusColor(
               TaskStatus.values.byName(status)),
         ),
       ),

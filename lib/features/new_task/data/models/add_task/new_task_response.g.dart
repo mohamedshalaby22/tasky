@@ -18,3 +18,14 @@ AddNewTaskResponse _$AddNewTaskResponseFromJson(Map<String, dynamic> json) =>
       dueDate: json['createdAt'] as String,
     );
 
+Map<String, dynamic> _$AddNewTaskResponseToJson(AddNewTaskResponse instance) =>
+    <String, dynamic>{
+      'image': instance.image,
+      'title': instance.title,
+      'desc': instance.desc,
+      'priority': instance.priority,
+      'status': instance.status,
+      'user': instance.user,
+      '_id': instance.id,
+      'createdAt': instance.dueDate,
+    };

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tasky/core/helpers/haptic_feedback.dart';
+import 'package:tasky/features/home/logic/cubit/tasks_cubit.dart';
+import 'package:tasky/features/home/logic/utils/task_status_color.dart';
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
 
@@ -32,7 +35,9 @@ class _TaskStatusListState extends State<TaskStatusList> {
                 setState(() {
                   selectedIndex = index;
                 });
-
+                context
+                    .read<TasksCubit>()
+                    .filterTasksByStatus(TaskStatusHelper.getTaskText(index));
                 await HapticFeedbackExtension.vibrateSelection();
               },
               child: taskStatusCard(

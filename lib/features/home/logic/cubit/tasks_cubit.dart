@@ -12,11 +12,14 @@ class TasksCubit extends Cubit<TasksState> {
   final TasksRepo _todosRepo;
   TasksCubit(this._todosRepo) : super(const TasksState.initial());
 
+  List<TasksListResponse> _allTasks = [];
+
   Future<void> getTasks() async {
     emit(const TasksState.loading());
     final response = await _todosRepo.getTodos();
     response.when(success: (todosListModel) {
       if (todosListModel.isNotEmpty) {
+        _allTasks = todosListModel;
         emit(TasksState.success(todosListModel));
       } else {
         emit(const TasksState.empty());
@@ -25,6 +28,22 @@ class TasksCubit extends Cubit<TasksState> {
       if (isClosed) return;
       emit(TasksState.error(message: error.toString()));
     });
+  }
+
+  void filterTasksByStatus(String status) {
+    if (_allTasks.isEmpty) {
+      emit(const TasksState.empty());
+    } else if (status == 'all') {
+      emit(TasksState.success(_allTasks));
+    } else {
+      final filteredTasks =
+          _allTasks.where((task) => task.status == status).toList();
+      if (filteredTasks.isEmpty) {
+        emit(const TasksState.empty());
+      } else {
+        emit(TasksState.success(filteredTasks));
+      }
+    }
   }
 
   void logout() async {

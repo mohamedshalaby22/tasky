@@ -52,6 +52,7 @@ class TasksBlocBuilder extends StatelessWidget {
   }
 }
 
+
 Widget setupEmpty(BuildContext context) {
   return Padding(
     padding: EdgeInsets.only(top: MediaQuery.sizeOf(context).height / 3.5),
