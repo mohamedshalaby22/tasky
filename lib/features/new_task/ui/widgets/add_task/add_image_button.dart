@@ -75,7 +75,15 @@ class _AddImageButtonState extends State<AddImageButton> {
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
       onTap: () {
-        addImageSheet();
+        showImagepickerSheet(
+          context: context,
+          onPickFromCamera: () {
+            context.read<NewTaskCubit>().pickImage(ImageSource.camera);
+          },
+          onPickFromGallery: () {
+            context.read<NewTaskCubit>().pickImage(ImageSource.gallery);
+          },
+        );
       },
       child: DottedBorder(
         strokeWidth: 1,
@@ -111,76 +119,79 @@ class _AddImageButtonState extends State<AddImageButton> {
       ),
     );
   }
+}
 
-  Future<dynamic> addImageSheet() {
-    return showModalBottomSheet(
-        elevation: 0.0,
-        backgroundColor: Colors.white,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
-        context: context,
-        builder: (_) {
-          return Container(
-            margin: const EdgeInsets.all(16),
-            width: double.infinity,
-            height: 200,
-            child: Column(
-              children: [
-                GestureDetector(
-                  onTap: () {
-                    context.pop();
-                  },
-                  child: const Align(
-                    alignment: Alignment.topRight,
-                    child: CircleAvatar(
-                      radius: 18,
-                      backgroundColor: ColorsManager.lighterPurple,
-                      child: Icon(
-                        Icons.close,
-                        color: ColorsManager.mainPurple,
-                      ),
+Future<dynamic> showImagepickerSheet(
+    {required BuildContext context,
+    required Function onPickFromCamera,
+    required Function onPickFromGallery}) {
+  return showModalBottomSheet(
+      elevation: 0.0,
+      backgroundColor: Colors.white,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+      context: context,
+      builder: (_) {
+        return Container(
+          margin: const EdgeInsets.all(16),
+          width: double.infinity,
+          height: 200,
+          child: Column(
+            children: [
+              GestureDetector(
+                onTap: () {
+                  context.pop();
+                },
+                child: const Align(
+                  alignment: Alignment.topRight,
+                  child: CircleAvatar(
+                    radius: 18,
+                    backgroundColor: ColorsManager.lighterPurple,
+                    child: Icon(
+                      Icons.close,
+                      color: ColorsManager.mainPurple,
                     ),
                   ),
                 ),
-                verticalSpacing(15),
-                GestureDetector(
-                  onTap: () {
-                    context.read<NewTaskCubit>().pickImage(ImageSource.gallery);
-                    context.pop();
-                  },
-                  child: buildInfoCard(
-                      child: Row(
-                    children: [
-                      const Icon(Icons.image_outlined,
-                          color: ColorsManager.mainPurple),
-                      horizontalSpacing(10),
-                      Text(
-                        'Choose Image From Gallery',
-                        style: TextStyles.font16MainPurpleBold,
-                      ),
-                    ],
-                  )),
-                ),
-                GestureDetector(
-                  onTap: () {
-                    context.read<NewTaskCubit>().pickImage(ImageSource.camera);
-                    context.pop();
-                  },
-                  child: buildInfoCard(
-                      child: Row(
-                    children: [
-                      const Icon(Icons.camera_outlined,
-                          color: ColorsManager.mainPurple),
-                      horizontalSpacing(10),
-                      Text(
-                        'Pick Image From Camera',
-                        style: TextStyles.font16MainPurpleBold,
-                      ),
-                    ],
-                  )),
-                ),
-              ],
-            ),
-          );
-        });
-  }
+              ),
+              verticalSpacing(15),
+              GestureDetector(
+                onTap: () {
+                  onPickFromGallery();
+                  context.pop();
+                },
+                child: buildInfoCard(
+                    child: Row(
+                  children: [
+                    const Icon(Icons.image_outlined,
+                        color: ColorsManager.mainPurple),
+                    horizontalSpacing(10),
+                    Text(
+                      'Choose Image From Gallery',
+                      style: TextStyles.font16MainPurpleBold,
+                    ),
+                  ],
+                )),
+              ),
+              GestureDetector(
+                onTap: () {
+                  onPickFromCamera();
+                  context.pop();
+                },
+                child: buildInfoCard(
+                    child: Row(
+                  children: [
+                    const Icon(Icons.camera_outlined,
+                        color: ColorsManager.mainPurple),
+                    horizontalSpacing(10),
+                    Text(
+                      'Pick Image From Camera',
+                      style: TextStyles.font16MainPurpleBold,
+                    ),
+                  ],
+                )),
+              ),
+            ],
+          ),
+        );
+      });
 }

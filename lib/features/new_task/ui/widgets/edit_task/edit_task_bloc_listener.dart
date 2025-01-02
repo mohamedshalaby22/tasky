@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tasky/core/helpers/capitalize_first.dart';
 import 'package:tasky/core/helpers/extensions.dart';
 import 'package:tasky/core/routing/routes.dart';
 import 'package:tasky/core/theming/colors.dart';
@@ -28,14 +27,13 @@ class EditTaskBlocListener extends StatelessWidget {
             );
           },
           success: (response) {
-            print(response);
-            // context.pop();
-            // context.pushNamedAndRemoveUntil(Routes.homeScreen,
-            //     predicate: (Route<dynamic> route) => false);
-            // AppSnackBar.showSnackBarWidget(
-            //   context: context,
-            //   message: 'Edit task added successfully!'.capitalizeFirst(),
-            // );
+            context.pop();
+            context.pushNamedAndRemoveUntil(Routes.homeScreen,
+                predicate: (Route<dynamic> route) => false);
+            AppSnackBar.showSnackBarWidget(
+              context: context,
+              message: 'Task Edited Successfully!',
+            );
           },
           error: (error) {
             AppSnackBar.showSnackBarWidget(

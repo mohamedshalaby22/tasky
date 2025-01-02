@@ -41,9 +41,19 @@ class TaskDetailsAppbar extends StatelessWidget implements PreferredSizeWidget {
           const Spacer(),
           CustomPopupMenu(
             onEdit: () {
+              final taskDetailsCubit = context.read<TaskDetailsCubit>();
+              final taskDetails = taskDetailsCubit.taskDetails;
               context.pop();
-              context.pushReplacementNamed(Routes.editTaskScreen,
-                  arguments: context.read<TaskDetailsCubit>().taskId);
+              context.pushNamed(
+                Routes.editTaskScreen,
+                arguments: {
+                  'taskId': taskDetailsCubit.taskId,
+                  'title': taskDetails.title,
+                  'desc': taskDetails.desc,
+                  'priority': taskDetails.priority,
+                  'status': taskDetails.status,
+                },
+              );
             },
             onDelete: () {
               context.pop();

@@ -66,10 +66,17 @@ class AppRouter {
           ),
         );
       case Routes.editTaskScreen:
-        final String taskId = settings.arguments as String;
+        final arguments = settings.arguments as Map<String, dynamic>;
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
-            create: (BuildContext context) => EditTaskCubit(getIt(), taskId),
+            create: (BuildContext context) => EditTaskCubit(
+              getIt(),
+              arguments['taskId'],
+              arguments['title'],
+              arguments['desc'],
+              arguments['priority'],
+              arguments['status'],
+            ),
             child: const EditTaskScreen(),
           ),
         );

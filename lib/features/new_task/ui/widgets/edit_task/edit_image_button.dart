@@ -1,8 +1,10 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:tasky/core/constants/app_images.dart';
 import 'package:tasky/core/theming/colors.dart';
+import '../../../logic/edit_cubit/edit_task_cubit.dart';
+import '../add_task/add_image_button.dart';
 
 class EditImageWidget extends StatefulWidget {
   const EditImageWidget({super.key});
@@ -12,8 +14,6 @@ class EditImageWidget extends StatefulWidget {
 }
 
 class _EditImageWidgetState extends State<EditImageWidget> {
-  File? selectedImage;
-
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -26,9 +26,9 @@ class _EditImageWidgetState extends State<EditImageWidget> {
           clipBehavior: Clip.none,
           alignment: Alignment.bottomRight,
           children: [
-            selectedImage != null
+            context.watch<EditTaskCubit>().selectedImage != null
                 ? Image.file(
-                    selectedImage!,
+                    context.watch<EditTaskCubit>().selectedImage!,
                     fit: BoxFit.contain,
                   )
                 : Image.asset(Assets.imagesTaskImage),
@@ -37,7 +37,19 @@ class _EditImageWidgetState extends State<EditImageWidget> {
               end: -10,
               child: GestureDetector(
                 onTap: () {
-                  pickImage(ImageSource.gallery);
+                  showImagepickerSheet(
+                    context: context,
+                    onPickFromCamera: () {
+                      context
+                          .read<EditTaskCubit>()
+                          .pickImage(ImageSource.camera);
+                    },
+                    onPickFromGallery: () {
+                      context
+                          .read<EditTaskCubit>()
+                          .pickImage(ImageSource.gallery);
+                    },
+                  );
                 },
                 child: const CircleAvatar(
                   radius: 20,
@@ -54,24 +66,5 @@ class _EditImageWidgetState extends State<EditImageWidget> {
         ),
       ),
     );
-  }
-
-  Future<void> pickImage(ImageSource source) async {
-    try {
-      final ImagePicker picker = ImagePicker();
-      final XFile? xFile = await picker.pickImage(
-        source: source,
-        imageQuality: 80,
-        maxWidth: 1024,
-        maxHeight: 1024,
-      );
-      if (xFile != null) {
-        setState(() {
-          selectedImage = File(xFile.path);
-        });
-      }
-    } catch (e) {
-      debugPrint('Error picking image: $e');
-    }
   }
 }

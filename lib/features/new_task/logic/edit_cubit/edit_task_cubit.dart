@@ -10,18 +10,38 @@ part 'edit_task_cubit.freezed.dart';
 
 class EditTaskCubit extends Cubit<EditTaskState> {
   final NewTaskRepo _newTaskRepo;
-  final String taskId;
-  EditTaskCubit(this._newTaskRepo, this.taskId)
-      : super(const EditTaskState.initial());
+  final String taskId, title, desc, priority, status;
+  EditTaskCubit(this._newTaskRepo, this.taskId, this.title, this.desc,
+      this.priority, this.status)
+      : super(const EditTaskState.initial()) {
+    titleController = TextEditingController(text: title);
+    descriptionController = TextEditingController(text: desc);
+    selectedPriority = priority;
+    selectedStatus = status;
+  }
 
+  TextEditingController titleController = TextEditingController();
+  TextEditingController descriptionController = TextEditingController();
+
+  final formKey = GlobalKey<FormState>();
+
+  String selectedPriority = '';
+  String selectedStatus = '';
   String imageUrl = '';
-  void uploadImageAndAddData() async {
+
+  void uploadImageAndUpdateTask() async {
     emit(const EditTaskState.loading());
+    if (selectedImage == null) {
+      // Api not served image
+      // No image selected, proceed to update task without uploading an image
+      await _updateTaskData();
+      return;
+    }
     final imageUploadResponse = await _newTaskRepo.uploadImage(selectedImage!);
     imageUploadResponse.when(
       success: (imageUploadResponse) async {
         imageUrl = imageUploadResponse.image;
-        await editTask();
+        await _updateTaskData();
       },
       failure: (message) {
         emit(EditTaskState.error(error: message.toString()));
@@ -29,12 +49,7 @@ class EditTaskCubit extends Cubit<EditTaskState> {
     );
   }
 
-  TextEditingController titleController = TextEditingController();
-  TextEditingController descriptionController = TextEditingController();
-  final formKey = GlobalKey<FormState>();
-  String selectedPriority = 'medium';
-  String selectedStatus = 'waiting';
-  Future<void> editTask() async {
+  Future<void> _updateTaskData() async {
     final requestBody = EditTaskRequestBody(
       title: titleController.text,
       desc: descriptionController.text,

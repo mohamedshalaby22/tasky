@@ -11,8 +11,3 @@ UploadImageResponse _$UploadImageResponseFromJson(Map<String, dynamic> json) =>
       image: json['image'] as String,
     );
 
-Map<String, dynamic> _$UploadImageResponseToJson(
-        UploadImageResponse instance) =>
-    <String, dynamic>{
-      'image': instance.image,
-    };

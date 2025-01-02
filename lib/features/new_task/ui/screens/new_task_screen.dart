@@ -45,11 +45,10 @@ class NewTaskScreen extends StatelessWidget {
 
   void validateAndAddTask(BuildContext context) {
     final taskCubit = context.read<NewTaskCubit>();
-
     if (taskCubit.formKey.currentState!.validate() &&
         taskCubit.selectedImage != null &&
         taskCubit.selectedDate.isNotEmpty) {
-      taskCubit.uploadImageAndAddData();
+      taskCubit.uploadImageAndCreateTask();
     } else {
       AppSnackBar.showSnackBarWidget(
           context: context,
