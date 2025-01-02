@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tasky/core/helpers/extensions.dart';
 import 'package:tasky/features/home/logic/cubit/tasks_cubit.dart';
+import '../../../../core/helpers/haptic_feedback.dart';
 import '../../../../core/routing/routes.dart';
 import '../../../../core/theming/colors.dart';
 import '../../../../core/widgets/app_snack_bar.dart';
@@ -29,7 +30,7 @@ class LogoutBlocListener extends StatelessWidget {
               ),
             );
           },
-          logoutSuccess: (logoutResponse) {
+          logoutSuccess: (logoutResponse) async{
             context.pop();
             context.pushReplacementNamed(Routes.onBoardingScreen);
             AppSnackBar.showSnackBarWidget(
@@ -37,6 +38,7 @@ class LogoutBlocListener extends StatelessWidget {
               message: 'Logout Succesfully!',
               backColor: Colors.green[400]!,  
             );
+            await HapticFeedbackExtension.vibrateLight();
           },
           logoutError: (error) {
             context.pop();

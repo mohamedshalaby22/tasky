@@ -4,6 +4,7 @@ import 'package:tasky/core/helpers/capitalize_first.dart';
 import 'package:tasky/core/helpers/extensions.dart';
 import 'package:tasky/core/widgets/app_snack_bar.dart';
 import 'package:tasky/features/task_details/logic/cubit/task_details_cubit.dart';
+import '../../../../core/helpers/haptic_feedback.dart';
 import '../../../../core/routing/routes.dart';
 import '../../../../core/theming/colors.dart';
 
@@ -30,7 +31,7 @@ class DeleteTaskBlocListener extends StatelessWidget {
               ),
             );
           },
-          deleteSuccess: () {
+          deleteSuccess: () async {
             context.pop();
             context.pushNamedAndRemoveUntil(Routes.homeScreen,
                 predicate: (Route<dynamic> route) => false);
@@ -38,6 +39,7 @@ class DeleteTaskBlocListener extends StatelessWidget {
               context: context,
               message: 'Task deleted successfully!'.capitalizeFirst(),
             );
+            await HapticFeedbackExtension.vibrateLight();
           },
           deleteError: (error) {
             context.pop();

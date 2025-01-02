@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tasky/core/constants/app_images.dart';
 import 'package:tasky/core/helpers/extensions.dart';
+import 'package:tasky/core/helpers/haptic_feedback.dart';
 import 'package:tasky/core/routing/routes.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/colors.dart';
@@ -25,8 +26,9 @@ class FloatingActionButtons extends StatelessWidget {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(50),
             ),
-            onPressed: () {
+            onPressed: () async {
               context.pushNamed(Routes.qrViewScreen);
+              await HapticFeedbackExtension.vibrateLight();
             },
             child: Image.asset(
               Assets.imagesBarcodeIcon,
@@ -42,8 +44,9 @@ class FloatingActionButtons extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(50),
           ),
-          onPressed: () {
+          onPressed: () async {
             context.pushNamed(Routes.newTaskScreen);
+            await HapticFeedbackExtension.vibrateLight();
           },
           child: const Icon(
             Icons.add,

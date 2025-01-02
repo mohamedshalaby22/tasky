@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tasky/core/helpers/capitalize_first.dart';
 import 'package:tasky/core/helpers/extensions.dart';
+import 'package:tasky/core/helpers/haptic_feedback.dart';
 import 'package:tasky/core/routing/routes.dart';
 import 'package:tasky/core/theming/colors.dart';
 import 'package:tasky/core/widgets/app_snack_bar.dart';
@@ -27,7 +28,7 @@ class NewTaskBlocListener extends StatelessWidget {
               ),
             );
           },
-          success: (response) {
+          success: (response) async{
             context.pop();
             context.pushNamedAndRemoveUntil(Routes.homeScreen,
                 predicate: (Route<dynamic> route) => false);
@@ -35,6 +36,7 @@ class NewTaskBlocListener extends StatelessWidget {
               context: context,
               message: 'New task added successfully!'.capitalizeFirst(),
             );
+              await HapticFeedbackExtension.vibrateLight();
           },
           error: (error) {
             AppSnackBar.showSnackBarWidget(

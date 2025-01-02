@@ -4,6 +4,7 @@ import 'package:tasky/core/helpers/extensions.dart';
 import 'package:tasky/core/routing/routes.dart';
 import 'package:tasky/core/theming/colors.dart';
 import 'package:tasky/core/widgets/app_snack_bar.dart';
+import '../../../../../core/helpers/haptic_feedback.dart';
 import '../../../logic/edit_cubit/edit_task_cubit.dart';
 
 class EditTaskBlocListener extends StatelessWidget {
@@ -26,7 +27,7 @@ class EditTaskBlocListener extends StatelessWidget {
               ),
             );
           },
-          success: (response) {
+          success: (response) async {
             context.pop();
             context.pushNamedAndRemoveUntil(Routes.homeScreen,
                 predicate: (Route<dynamic> route) => false);
@@ -34,6 +35,7 @@ class EditTaskBlocListener extends StatelessWidget {
               context: context,
               message: 'Task Edited Successfully!',
             );
+            await HapticFeedbackExtension.vibrateLight();
           },
           error: (error) {
             AppSnackBar.showSnackBarWidget(

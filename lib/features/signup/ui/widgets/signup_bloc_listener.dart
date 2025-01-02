@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tasky/core/helpers/extensions.dart';
 import 'package:tasky/core/widgets/app_snack_bar.dart';
+import '../../../../core/helpers/haptic_feedback.dart';
 import '../../../../core/routing/routes.dart';
 import '../../../../core/theming/colors.dart';
 import '../../logic/cubit/sign_up_cubit.dart';
@@ -26,7 +27,7 @@ class SignupBlocListener extends StatelessWidget {
               ),
             );
           },
-          success: (signupResponse) {
+          success: (signupResponse) async {
             context.pop();
             context.pushNamedAndRemoveUntil(Routes.homeScreen,
                 predicate: (Route<dynamic> route) => false);
@@ -34,6 +35,7 @@ class SignupBlocListener extends StatelessWidget {
               context: context,
               message: 'Signup Succesfully!',
             );
+            await HapticFeedbackExtension.vibrateSuccess();
           },
           error: (error) {
             AppSnackBar.showSnackBarWidget(

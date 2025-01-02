@@ -38,7 +38,7 @@ class _TaskStatusListState extends State<TaskStatusList> {
                 context
                     .read<TasksCubit>()
                     .filterTasksByStatus(TaskStatusHelper.getTaskText(index));
-                await HapticFeedbackExtension.vibrateSelection();
+                await HapticFeedbackExtension.vibrateLight();
               },
               child: taskStatusCard(
                 title: status[index],

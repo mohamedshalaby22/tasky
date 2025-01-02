@@ -50,7 +50,7 @@ class UserProfileInfoRow extends StatelessWidget {
                     message: 'Phone Copied Successfully!',
                   );
                   Clipboard.setData(ClipboardData(text: subTitle));
-                  await HapticFeedbackExtension.vibrateSelection();
+                  await HapticFeedbackExtension.vibrateLight();
                 },
                 child: Image.asset(Assets.imagesCopyIcon, width: 25)),
         ],

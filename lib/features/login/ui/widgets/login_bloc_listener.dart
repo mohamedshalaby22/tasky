@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tasky/core/helpers/extensions.dart';
+import 'package:tasky/core/helpers/haptic_feedback.dart';
 import 'package:tasky/core/widgets/app_snack_bar.dart';
 import 'package:tasky/features/login/logic/cubit/login_cubit.dart';
 import '../../../../core/routing/routes.dart';
@@ -26,7 +27,7 @@ class LoginBlocListener extends StatelessWidget {
               ),
             );
           },
-          success: (loginResponse) {
+          success: (loginResponse) async {
             context.pop();
             context.pushNamedAndRemoveUntil(Routes.homeScreen,
                 predicate: (Route<dynamic> route) => false);
@@ -34,6 +35,7 @@ class LoginBlocListener extends StatelessWidget {
               context: context,
               message: 'Login Succesfully!',
             );
+            await HapticFeedbackExtension.vibrateSuccess();
           },
           error: (error) {
             context.pop();
