@@ -81,7 +81,7 @@ Future<dynamic> _deleteTaskSheet(BuildContext context) {
       return Container(
         margin: const EdgeInsets.all(16),
         width: double.infinity,
-        height: 150,
+        height: 130,
         child: Column(
           children: [
             GestureDetector(

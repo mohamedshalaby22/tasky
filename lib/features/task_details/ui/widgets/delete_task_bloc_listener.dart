@@ -31,7 +31,7 @@ class DeleteTaskBlocListener extends StatelessWidget {
               ),
             );
           },
-          deleteSuccess: () async {
+          deleteSuccess: ()async {
             context.pop();
             context.pushNamedAndRemoveUntil(Routes.homeScreen,
                 predicate: (Route<dynamic> route) => false);
@@ -39,7 +39,7 @@ class DeleteTaskBlocListener extends StatelessWidget {
               context: context,
               message: 'Task deleted successfully!'.capitalizeFirst(),
             );
-            await HapticFeedbackExtension.vibrateLight();
+              await HapticFeedbackExtension.vibrateLight();
           },
           deleteError: (error) {
             context.pop();

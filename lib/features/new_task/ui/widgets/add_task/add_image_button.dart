@@ -128,7 +128,8 @@ Future<dynamic> showImagepickerSheet(
   return showModalBottomSheet(
       elevation: 0.0,
       backgroundColor: Colors.white,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+      shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(top: Radius.circular(25))),
       context: context,
       builder: (_) {
         return Container(
