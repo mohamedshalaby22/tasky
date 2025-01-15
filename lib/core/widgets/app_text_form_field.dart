@@ -38,7 +38,6 @@ class AppTextFormField extends StatelessWidget {
     return TextFormField(
       controller: controller,
       onTapOutside: (event) {
-        print('onTapOutside');
         FocusManager.instance.primaryFocus?.unfocus();
       },
       inputFormatters: inputFormatters ?? [],
