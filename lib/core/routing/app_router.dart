@@ -76,6 +76,7 @@ class AppRouter {
               arguments['desc'],
               arguments['priority'],
               arguments['status'],
+              arguments['image'],
             ),
             child: const EditTaskScreen(),
           ),

@@ -10,14 +10,15 @@ part 'edit_task_cubit.freezed.dart';
 
 class EditTaskCubit extends Cubit<EditTaskState> {
   final NewTaskRepo _newTaskRepo;
-  final String taskId, title, desc, priority, status;
+  final String taskId, title, desc, priority, status, image;
   EditTaskCubit(this._newTaskRepo, this.taskId, this.title, this.desc,
-      this.priority, this.status)
+      this.priority, this.status, this.image)
       : super(const EditTaskState.initial()) {
     titleController = TextEditingController(text: title);
     descriptionController = TextEditingController(text: desc);
     selectedPriority = priority;
     selectedStatus = status;
+    imageUrl = image;
   }
 
   TextEditingController titleController = TextEditingController();
@@ -32,8 +33,6 @@ class EditTaskCubit extends Cubit<EditTaskState> {
   void uploadImageAndUpdateTask() async {
     emit(const EditTaskState.loading());
     if (selectedImage == null) {
-      // Api not served image
-      // No image selected, proceed to update task without uploading an image
       await _updateTaskData();
       return;
     }

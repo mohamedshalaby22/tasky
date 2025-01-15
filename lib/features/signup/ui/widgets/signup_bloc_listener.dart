@@ -38,6 +38,7 @@ class SignupBlocListener extends StatelessWidget {
             await HapticFeedbackExtension.vibrateSuccess();
           },
           error: (error) {
+            context.pop();
             AppSnackBar.showSnackBarWidget(
                 context: context,
                 message: error.toString(),

@@ -7,17 +7,18 @@ import 'package:tasky/features/task_details/ui/widgets/task_image_and_descriptio
 
 class TaskDetailsInfo extends StatelessWidget {
   const TaskDetailsInfo({super.key, required this.taskDetailsResponse});
-final TaskDetailsResponse taskDetailsResponse;
+  final TaskDetailsResponse taskDetailsResponse;
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-         TaskImageAndDescription(
+        TaskImageAndDescription(
+          imagePath: taskDetailsResponse.image,
           title: taskDetailsResponse.title,
           description: taskDetailsResponse.desc,
         ),
         verticalSpacing(15),
-         TaskDetailsCards(
+        TaskDetailsCards(
           status: taskDetailsResponse.status,
           date: '30 June,2022',
           priority: taskDetailsResponse.priority,

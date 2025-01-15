@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tasky/core/helpers/capitalize_first.dart';
 import 'package:tasky/core/helpers/extensions.dart';
-import 'package:tasky/core/networking/api_constants.dart';
 import 'package:tasky/core/routing/routes.dart';
 import 'package:tasky/features/home/data/models/tasks_list_response.dart';
 import 'package:tasky/features/home/ui/widgets/task_card.dart';
@@ -24,7 +23,7 @@ class TasksListView extends StatelessWidget {
             },
             child: TaskCard(
               imagePath:
-                  '${ApiConstants.apiBaseUrl}/image/${tasksList[index].image}',
+                  'https://todo.iraqsapp.com/images/${tasksList[index].image}',
               title: tasksList[index].title.capitalizeFirst(),
               description: tasksList[index].desc.capitalizeFirst().trim(),
               status: tasksList[index].status,

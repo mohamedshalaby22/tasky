@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tasky/core/theming/styles.dart';
 import 'package:tasky/core/widgets/app_text_form_field.dart';
@@ -43,6 +44,9 @@ class _SignUpFormsState extends State<SignUpForms> {
           AppTextFormField(
               controller: context.read<SignUpCubit>().yearsController,
               textInputType: TextInputType.phone,
+              inputFormatters: [
+                FilteringTextInputFormatter.digitsOnly
+              ],
               hintText: 'Years of experience...',
               validator: (value) {
                 if (value != null && value.isEmpty) {

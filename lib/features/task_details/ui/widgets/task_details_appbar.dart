@@ -52,6 +52,7 @@ class TaskDetailsAppbar extends StatelessWidget implements PreferredSizeWidget {
                   'desc': taskDetails.desc,
                   'priority': taskDetails.priority,
                   'status': taskDetails.status,
+                  'image': taskDetails.image,
                 },
               );
             },

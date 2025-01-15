@@ -126,73 +126,74 @@ Future<dynamic> showImagepickerSheet(
     required Function onPickFromCamera,
     required Function onPickFromGallery}) {
   return showModalBottomSheet(
-      elevation: 0.0,
-      backgroundColor: Colors.white,
-      shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(top: Radius.circular(25))),
-      context: context,
-      builder: (_) {
-        return Container(
-          margin: const EdgeInsets.all(16),
-          width: double.infinity,
-          height: 200,
-          child: Column(
-            children: [
-              GestureDetector(
-                onTap: () {
-                  context.pop();
-                },
-                child: const Align(
-                  alignment: Alignment.topRight,
-                  child: CircleAvatar(
-                    radius: 18,
-                    backgroundColor: ColorsManager.lighterPurple,
-                    child: Icon(
-                      Icons.close,
-                      color: ColorsManager.mainPurple,
-                    ),
+    elevation: 0.0,
+    backgroundColor: Colors.white,
+    shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(25))),
+    context: context,
+    builder: (_) {
+      return Container(
+        margin: const EdgeInsets.all(16),
+        width: double.infinity,
+        height: 200,
+        child: Column(
+          children: [
+            GestureDetector(
+              onTap: () {
+                context.pop();
+              },
+              child: const Align(
+                alignment: Alignment.topRight,
+                child: CircleAvatar(
+                  radius: 18,
+                  backgroundColor: ColorsManager.lighterPurple,
+                  child: Icon(
+                    Icons.close,
+                    color: ColorsManager.mainPurple,
                   ),
                 ),
               ),
-              verticalSpacing(15),
-              GestureDetector(
-                onTap: () {
-                  onPickFromGallery();
-                  context.pop();
-                },
-                child: buildInfoCard(
-                    child: Row(
-                  children: [
-                    const Icon(Icons.image_outlined,
-                        color: ColorsManager.mainPurple),
-                    horizontalSpacing(10),
-                    Text(
-                      'Choose Image From Gallery',
-                      style: TextStyles.font16MainPurpleBold,
-                    ),
-                  ],
-                )),
-              ),
-              GestureDetector(
-                onTap: () {
-                  onPickFromCamera();
-                  context.pop();
-                },
-                child: buildInfoCard(
-                    child: Row(
-                  children: [
-                    const Icon(Icons.camera_outlined,
-                        color: ColorsManager.mainPurple),
-                    horizontalSpacing(10),
-                    Text(
-                      'Pick Image From Camera',
-                      style: TextStyles.font16MainPurpleBold,
-                    ),
-                  ],
-                )),
-              ),
-            ],
-          ),
-        );
-      });
+            ),
+            verticalSpacing(15),
+            GestureDetector(
+              onTap: () {
+                onPickFromGallery();
+                context.pop();
+              },
+              child: buildInfoCard(
+                  child: Row(
+                children: [
+                  const Icon(Icons.image_outlined,
+                      color: ColorsManager.mainPurple),
+                  horizontalSpacing(10),
+                  Text(
+                    'Choose Image From Gallery',
+                    style: TextStyles.font16MainPurpleBold,
+                  ),
+                ],
+              )),
+            ),
+            GestureDetector(
+              onTap: () {
+                onPickFromCamera();
+                context.pop();
+              },
+              child: buildInfoCard(
+                  child: Row(
+                children: [
+                  const Icon(Icons.camera_outlined,
+                      color: ColorsManager.mainPurple),
+                  horizontalSpacing(10),
+                  Text(
+                    'Pick Image From Camera',
+                    style: TextStyles.font16MainPurpleBold,
+                  ),
+                ],
+              )),
+            ),
+          ],
+        ),
+      );
+    },
+  );
 }

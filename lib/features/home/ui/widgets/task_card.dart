@@ -1,7 +1,7 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tasky/core/constants/app_constants.dart';
-import 'package:tasky/core/constants/app_images.dart';
 import 'package:tasky/core/helpers/capitalize_first.dart';
 import 'package:tasky/core/helpers/spacing.dart';
 import 'package:tasky/core/theming/font_weight_helper.dart';
@@ -30,9 +30,10 @@ class TaskCard extends StatelessWidget {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Image.asset(
-                  Assets.imagesTaskImage,
+                CachedNetworkImage(
+                  imageUrl: imagePath,
                   width: 70,
+                  height: 70,
                   fit: BoxFit.contain,
                 ),
                 horizontalSpacing(5),
