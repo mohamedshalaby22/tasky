@@ -6,14 +6,6 @@ part of 'edit_task_body.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-EditTaskRequestBody _$EditTaskRequestBodyFromJson(Map<String, dynamic> json) =>
-    EditTaskRequestBody(
-      image: json['image'] as String,
-      title: json['title'] as String,
-      desc: json['desc'] as String,
-      priority: json['priority'] as String,
-      status: json['status'] as String,
-    );
 
 Map<String, dynamic> _$EditTaskRequestBodyToJson(
         EditTaskRequestBody instance) =>
