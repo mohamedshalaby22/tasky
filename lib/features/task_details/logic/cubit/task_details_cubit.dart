@@ -2,7 +2,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:tasky/features/task_details/data/models/task_details_response.dart';
 import 'package:tasky/features/task_details/data/repos/task_details_repo.dart';
-
 import '../../../../core/helpers/haptic_feedback.dart';
 part 'task_details_state.dart';
 part 'task_details_cubit.freezed.dart';

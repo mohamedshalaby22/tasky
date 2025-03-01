@@ -21,7 +21,6 @@ class TextStyles {
     fontSize: 16.sp,
     color: ColorsManager.grey,
     fontWeight: FontWeightHelper.bold,
-    fontFamily: AppConstants.appFontFamily,
   );
   static TextStyle font19WhiteBold = TextStyle(
     fontSize: 19.sp,
